@@ -12,7 +12,7 @@ public class AreaGeneration : MonoBehaviour {
 		public int cy;
 	}
 
-	Capital [] cp = new Capital[3];
+	Capital [] cp = new Capital[10];
 	
 	void Start () {
 		mapArr = mg.NationalArea();
@@ -25,10 +25,12 @@ public class AreaGeneration : MonoBehaviour {
 	}
 
 	void rand(){
+
+
 		int nations = 0;
 		int x=0, y=0;
 		int gap1 = 0, gap2 = 0;
-		while(nations<3){
+		while(nations<10){
 			x = Random.Range (0,26);
 			y = Random.Range(0,26);
 		    if(mapArr[x,y] == 1 || mapArr[x,y] == 2){
@@ -49,7 +51,7 @@ public class AreaGeneration : MonoBehaviour {
 	}
 
 	void capitalGeneration(){
-		for (int i=0; i<3; i++) {
+		for (int i=0; i<10; i++) {
 			Instantiate (Capital1, new Vector3 (cp[i].cx* 1.73F, 0, cp[i].cy*1.52F*-1), Quaternion.identity);
 		}
 	}
