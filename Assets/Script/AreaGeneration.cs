@@ -5,6 +5,11 @@ public class AreaGeneration : MonoBehaviour {
 
 	MapGeneration mg = new MapGeneration();
 	public Transform Capital1;
+	public Transform Capital2;
+	public Transform Capital3;
+	public Transform Capital4;
+	public Transform Capital5;
+
 	int [,] mapArr = new int[26, 26];
 
 	public struct Capital{
@@ -51,8 +56,11 @@ public class AreaGeneration : MonoBehaviour {
 	}
 
 	void capitalGeneration(){
-		for (int i=0; i<5; i++) {
-			Instantiate (Capital1, new Vector3 (cp[i].cx* 1.73F, 0, cp[i].cy*1.52F*-1), Quaternion.identity);
-		}
+
+		Instantiate (Capital1, new Vector3 (cp[0].cx* 1.73F, 0, cp[0].cy*1.52F*-1), Quaternion.identity);
+		Instantiate (Capital2, new Vector3 (cp[1].cx* 1.73F, 0, cp[1].cy*1.52F*-1), Quaternion.identity);
+		Instantiate (Capital3, new Vector3 (cp[2].cx* 1.73F, 0, cp[2].cy*1.52F*-1), Quaternion.identity);
+		Instantiate (Capital4, new Vector3 (cp[3].cx* 1.73F, 0, cp[3].cy*1.52F*-1), Quaternion.identity);
+		Instantiate (Capital5, new Vector3 (cp[4].cx* 1.73F, 0, cp[4].cy*1.52F*-1), Quaternion.identity);
 	}
 }

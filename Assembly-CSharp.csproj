@@ -49,6 +49,8 @@
      <Compile Include="Assets\Script\AreaGeneration.cs" />
      <Compile Include="Assets\Script\CameraMove.cs" />
      <Compile Include="Assets\Script\MapGeneration.cs" />
+     <Compile Include="Assets\Script\NewsGUI.cs" />
+     <Compile Include="Assets\Script\NewsScript.cs" />
      <None Include="Assets\Skyboxes\_skybox info.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
