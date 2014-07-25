@@ -1,11 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\NewsGUI.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\NewsScript.cs">
     <Files>
-      <File FileName="Assets\Script\AreaGeneration.cs" Line="26" Column="3" />
-      <File FileName="Assets\Script\MapGeneration.cs" Line="74" Column="3" />
-      <File FileName="Assets\Script\NewsScript.cs" Line="15" Column="2" />
-      <File FileName="Assets\Script\NewsGUI.cs" Line="31" Column="1" />
+      <File FileName="Assets\Script\NewsScript.cs" Line="10" Column="27" />
+      <File FileName="Assets\Script\MapGeneration.cs" Line="61" Column="121" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
