@@ -3,7 +3,7 @@ using System.Collections;
 
 public class NewsGUI : MonoBehaviour {
 	
-	public float ScoreDelay = 0.5f;
+	public float ScoreDelay = 2.0f;
 	// Use this for initialization
 	void Start () {
 		StartCoroutine("DisplayScore"); 
@@ -12,7 +12,7 @@ public class NewsGUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 pos = transform.position;
-		pos.y += 0.001f;
+		pos.y += 0.0005f;
 		transform.position = pos;
 	}
 	IEnumerator DisplayScore()

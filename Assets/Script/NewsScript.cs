@@ -7,12 +7,16 @@ public class NewsScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		TopNews.guiText.text ="a";
-		Instantiate (TopNews, new Vector3 (0.4F, 0.98F, 1), Quaternion.identity);
+		TextMessage ("게임이 시작되었습니다.");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	void TextMessage(string TM){
+		TopNews.guiText.text = TM;
+		Instantiate (TopNews, new Vector3 (0.4F, 0.98F, 1), Quaternion.identity);
 	}
 }
