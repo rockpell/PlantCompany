@@ -4,6 +4,9 @@ using System.Collections;
 public class SettingUI : MonoBehaviour {
 	//public GUISkin mySkin;
 
+	int sw = Screen.width;
+	int sh = Screen.height;
+
 	bool SettingOn = false;
 
 	void Start () {
@@ -21,10 +24,10 @@ public class SettingUI : MonoBehaviour {
 
 	void OnGUI(){
 		if(SettingOn){
-		GUI.Box (new Rect(Screen.width/2-80 ,Screen.height/2-100 ,230 ,90), "Menu");
-			if(GUI.Button(new Rect(Screen.width/2+120 ,Screen.height/2-100,30,20),"X"))
+			GUI.Box (new Rect(sw/2-80 ,sh/2-100 ,sw/4 ,90), "Menu");
+			if(GUI.Button(new Rect(sw/2-110+sw/4 ,sh/2-100,30,20),"X"))
 				SettingOn=false;
-			if(GUI.Button (new Rect(Screen.width/2-60,Screen.height/2-60,200,30),"게임종료"))
+			if(GUI.Button (new Rect(sw/2-60,sh/2-60,sw/4-50,30),"게임종료"))
 				Application.Quit ();
 		}
 	}
