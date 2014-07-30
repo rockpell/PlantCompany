@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\AreaGeneration.cs" />
+     <Compile Include="Assets\Script\BottomUI.cs" />
      <Compile Include="Assets\Script\CameraMove.cs" />
      <Compile Include="Assets\Script\CapitalSystem2.cs" />
      <Compile Include="Assets\Script\CapitalSystem3.cs" />
@@ -57,6 +58,8 @@
      <Compile Include="Assets\Script\NewsGUI.cs" />
      <Compile Include="Assets\Script\NewsScript.cs" />
      <Compile Include="Assets\Script\SettingUI.cs" />
+     <Compile Include="Assets\Script\StateUI.cs" />
+     <Compile Include="Assets\Script\Timer.cs" />
      <None Include="Assets\Skyboxes\_skybox info.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
