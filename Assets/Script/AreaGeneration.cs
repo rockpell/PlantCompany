@@ -10,6 +10,8 @@ public class AreaGeneration : MonoBehaviour {
 	public Transform Capital3;
 	public Transform Capital4;
 	public Transform Capital5;
+	public Transform Nation1;
+	public Transform Nation2;
 
 	int [,] mapArr = new int[26, 26];
 
@@ -68,18 +70,75 @@ public class AreaGeneration : MonoBehaviour {
 
 		int x = 0;
 		int y = 0;
+		int q = -1;
+		bool visit = true; // 방문 표시(true = 처음 & false = 처음 아님)
 
 		for (x=0; x<26; x++) { // 세로 축 탐색
-
 			for(y=0;y<26;y++) { // 가로 축 탐색
 				if(mapArr[x,y]==1 || mapArr[x,y]==2 || mapArr[x,y]==3) mapArr[x,y]=rangecul(x,y);
+				/* mapArr 내부의 Value 해당 국가 소속값으로 바꿈. 
+				 * Capital1 소속이면 1
+				 * Capital2 소속이면 2... */
+
 			}
+		}
+
+		for (x=1; x<25; x++) { 
+			/* 국경지역 Value 변경
+			 * Capital1 국경은 6
+			 * Capital2 국경은 7... */
+
+			for(y=1;y<25;y++) {
+
+				//위로 찾기
+				if(mapArr[x,y]!=0 && visit==true) {
+					if(mapArr[x,y-1]!= mapArr[x,y] && mapArr[x,y-1]!=mapArr[x,y]+5) {
+						mapArr[x,y]=mapArr[x,y]+5;
+						visit = false;
+					}
+				}
+
+				//아래로 찾기
+				if(mapArr[x,y]!=0 && visit==true) {
+					if(mapArr[x,y+1]!= mapArr[x,y] && mapArr[x,y+1]!=mapArr[x,y]+5) {
+						mapArr[x,y]=mapArr[x,y]+5;
+						visit = false;
+					}
+				}
+
+				//왼쪽으로 찾기
+				if(mapArr[x,y]!=0 && visit==true) {
+					if(mapArr[x-1,y]!= mapArr[x,y] && mapArr[x-1,y]!=mapArr[x,y]+5) {
+						mapArr[x,y]=mapArr[x,y]+5;
+						visit = false;
+					}
+				}
+
+				//오른쪽으로 찾기
+				if(mapArr[x,y]!=0 && visit==true) {
+					if(mapArr[x+1,y]!= mapArr[x,y] && mapArr[x+1,y]!=mapArr[x,y]+5) {
+						mapArr[x,y]=mapArr[x,y]+5;
+						visit = false;
+					}
+				}
+				visit = true;
+			}
+		}
+
+		for (x=0; x<26; x++) {
+			for (y=0; y<26; y++) {
+				if (mapArr [x, y] == 1) Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0, x * 1.52F * -1), Quaternion.identity);
+				if (mapArr [x, y] == 6) Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 1, x * 1.52F * -1), Quaternion.identity);
+			}
+			q=q*-1;
 		}
 	}
 
 	int rangecul(int x,int y) {
 		int [] ran = new int[5]{0,0,0,0,0};
 		int i=0;
+		int p = 0;
+		int count = 0;
 
 		for (i=0; i<5; i++) ran [i] = (y - cp [i].cx) * (y - cp [i].cx) + (x - cp [i].cy) * (x - cp [i].cy);
 
@@ -102,6 +161,14 @@ public class AreaGeneration : MonoBehaviour {
 			}
 		}
 
+		/*for (i=0; i<5; i++) {
+			for (p=0; p<5; p++) {
+				if(ran[i]<=ran[p]) count = count + 1;
+			}
+
+			if(count==5) break;
+			else count = 0;
+		}*/
 		return i + 1;
 	}
 }
