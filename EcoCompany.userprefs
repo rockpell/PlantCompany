@@ -1,15 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\SettingUI.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\NationStateUI.cs">
     <Files>
       <File FileName="Assets\Script\SettingUI.cs" Line="17" Column="29" />
-      <File FileName="Assets\Script\BottomUI.cs" Line="15" Column="2" />
-      <File FileName="Assets\Script\StateUI.cs" Line="14" Column="2" />
-      <File FileName="Assets\Script\SettingUI.cs" Line="42" Column="1" />
+      <File FileName="Assets\Script\BottomUI.cs" Line="6" Column="32" />
+      <File FileName="Assets\Script\StateUI.cs" Line="12" Column="37" />
       <File FileName="Assets\Script\AreaGeneration.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\NewsGUI.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\NewsScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\CameraMove.cs" Line="56" Column="6" />
+      <File FileName="Assets\Script\CameraMove.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\NationStateUI.cs" Line="31" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

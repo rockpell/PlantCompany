@@ -5,7 +5,7 @@ public class StateUI : MonoBehaviour {
 
 	GUIText State;
 
-	int Money = 0;
+	public static int Money = 0;
 
 	// Use this for initialization
 	void Start () {

@@ -15,6 +15,6 @@ public class CapitlaSystem1 : MonoBehaviour {
 
 	void OnMouseUp(){
 		GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "첫번째 나라를 클릭하였습니다");
-		BottomUI.nationSelect = true;
+		BottomUI.nationSelect = 1;
 	}
 }
