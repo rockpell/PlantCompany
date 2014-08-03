@@ -26,10 +26,10 @@ public class SettingUI : MonoBehaviour {
 	void OnGUI(){
 
 		if(SettingOn){
-			GUI.Box (new Rect(sw/2-80 ,sh/2-100 ,sw/4 ,90), "Menu");
-			if(GUI.Button(new Rect(sw/2-110+sw/4 ,sh/2-100,30,20),"X"))
+			GUI.Box (new Rect(sw*3/8 ,sh/2-100 ,sw/4 ,90), "Menu");
+			if(GUI.Button(new Rect(sw*5/8 -30 ,sh/2-100,30,20),"X"))
 				SettingOn=false;
-			if(GUI.Button (new Rect(sw/2-60,sh/2-60,sw/4-50,30),"게임종료"))
+			if(GUI.Button (new Rect(sw/2-sw*3/32,sh/2-60,sw*3/16,30),"게임종료"))
 				Application.Quit ();
 		}
 	}
