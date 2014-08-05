@@ -5,6 +5,7 @@ public class PlayerState : MonoBehaviour {
 
 	public static int Money = 1000; // 플레이어 자금
 	public static int time_Money=1; //시간당 자금
+
 	public static int waterpowerMoney=2; //수력발전소 시간당 들어오는 자금
 	public static int thermalpowerMoney=3; //화력발전소 시간당 들어오는 자금
 	public static int solarpowerMoney=4; //태양광발전소 시간당 들어오는 자금
@@ -35,5 +36,9 @@ public class PlayerState : MonoBehaviour {
 			_timerForText = 0;
 			Money += time_Money;
 		}
+	}
+
+	public void playerProfit(){
+		time_Money = 1 + waterpowerMoney*waterLevel + thermalpowerMoney*waterLevel + solarpowerMoney*sunLevel + nuclearpowerMoney*nuclearLevel + windpowerMoney*windLevel + gravitypowerMoney*gravityLevel;
 	}
 }

@@ -15,13 +15,11 @@ public class BottomUI : MonoBehaviour {
 	int selectNumber=0; // 선택 번호 ex) 1:정보수집, 2:수력, 3: 화력, 4:원자력, 5:태양광, 6:풍력, 7:중력
 
 	string actionText;
-
-	// Use this for initialization
+	
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 	
 	}
@@ -45,39 +43,45 @@ public class BottomUI : MonoBehaviour {
 			}
 		}
 		if (constructCheck) {
-						GUI.Box (new Rect (sw * 4 / 5, sh * 2 / 5, sw / 5, sh * 2 / 5), "");
-						scrollPosition = GUI.BeginScrollView (new Rect (sw * 4 / 5, sh * 2 / 5, sw / 5, sh * 2 / 5), scrollPosition, new Rect (0, 0, sw / 5 - 20, sh / 2 + 10));
-			if(GUI.Button (new Rect (10, 10, sw / 6, sh / 15), "수력발전소")){
-							ActionButton = true;
-							selectNumber = 2;
-							ActionText("수력발전소를 건설");
-						}
-			if(GUI.Button (new Rect (10, 10 * 2 + sh / 15, sw / 6, sh / 15), "화력발전소")){
-							ActionButton = true;
-							selectNumber = 3;
-							ActionText("화력발전소를 건설");
-						}
-			if(GUI.Button (new Rect (10, 10 * 3 + sh * 2 / 15, sw / 6, sh / 15), "원자력발전소")){
-							ActionButton = true;
-							selectNumber = 4;
-							ActionText("원자력발전소를 건설");
-						}
-			if(GUI.Button (new Rect (10, 10 * 4 + sh * 3 / 15, sw / 6, sh / 15), "태양광발전소")){
-							ActionButton = true;
-							selectNumber = 5;
-							ActionText("태양광발전소를 건설");
-						}
-			if(GUI.Button (new Rect (10, 10 * 5 + sh * 4 / 15, sw / 6, sh / 15), "풍력발전소")){
-							ActionButton = true;
-							selectNumber = 6;
-							ActionText("풍력발전소를 건설");
-						}
-			if(GUI.Button (new Rect (10, 10 * 6 + sh * 5 / 15, sw / 6, sh / 15), "중력발전소")){
-							ActionButton = true;
-							selectNumber = 7;
-							ActionText("중력발전소를 건설");
-						}
-						GUI.EndScrollView ();
+			GUI.Box (new Rect (sw * 4 / 5, sh * 2 / 5, sw / 5, sh * 2 / 5), "");
+			scrollPosition = GUI.BeginScrollView (new Rect (sw * 4 / 5, sh * 2 / 5, sw / 5, sh * 2 / 5), scrollPosition, new Rect (0, 0, sw / 5 - 20, sh / 2 + 10));
+			if (GUI.Button (new Rect (10, 10, sw / 6, sh / 15), "수력발전소")) {
+				ActionButton = true;
+				ActionText ("수력발전소를 건설");
+				if(PlayerState.waterLevel==0)selectNumber = 8;
+				else selectNumber = 2;
+			}
+			if (GUI.Button (new Rect (10, 10 * 2 + sh / 15, sw / 6, sh / 15), "화력발전소")) {
+				ActionButton = true;
+				ActionText ("화력발전소를 건설");
+				if(PlayerState.fireLevel==0)selectNumber = 8;
+				else selectNumber = 3;
+			}
+			if (GUI.Button (new Rect (10, 10 * 3 + sh * 2 / 15, sw / 6, sh / 15), "원자력발전소")) {
+				ActionButton = true;
+				ActionText ("원자력발전소를 건설");
+				if(PlayerState.nuclearLevel==0)selectNumber = 8;
+				else selectNumber = 4;
+			}
+			if (GUI.Button (new Rect (10, 10 * 4 + sh * 3 / 15, sw / 6, sh / 15), "태양광발전소")) {
+				ActionButton = true;
+				ActionText ("태양광발전소를 건설");
+				if(PlayerState.sunLevel==0)selectNumber = 8;
+				else selectNumber = 5;
+			}
+			if (GUI.Button (new Rect (10, 10 * 5 + sh * 4 / 15, sw / 6, sh / 15), "풍력발전소")) {
+				ActionButton = true;
+				ActionText ("풍력발전소를 건설");
+				if(PlayerState.windLevel==0)selectNumber = 8;
+				else selectNumber = 6;
+			}
+			if (GUI.Button (new Rect (10, 10 * 6 + sh * 5 / 15, sw / 6, sh / 15), "중력발전소")) {
+				ActionButton = true;
+				ActionText ("중력발전소를 건설");
+				if(PlayerState.gravityLevel==0)selectNumber = 8;
+				else selectNumber = 7;
+			}
+			GUI.EndScrollView ();
 				}
 		if (ActionButton) {
 			GUI.Box (new Rect (sw/2 - sw/10, sh/2 - sh/12, sw*2 / 9, sh/6), ""+actionText);
@@ -158,6 +162,10 @@ public class BottomUI : MonoBehaviour {
 				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "중력발전소를 건설하였습니다");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			break;
+
+		case 8:
+			GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "발전 기술이 1이상이여만 건설이 가능합니다");
 			break;
 		}
 	}

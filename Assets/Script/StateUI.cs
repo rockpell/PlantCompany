@@ -17,6 +17,8 @@ public class StateUI : MonoBehaviour {
 
 	string actionText;
 
+	PlayerState abc = new PlayerState ();
+
 	void Start () {
 		State = gameObject.GetComponent<GUIText>();
 	}
@@ -113,6 +115,8 @@ public class StateUI : MonoBehaviour {
 			if(GUI.Button(new Rect(sw/2 - sw/15, sh/2, sw / 15, sh/18), "확인")){
 				SelectMethod(selectNumber);
 				initialize();
+				abc.playerProfit();
+
 			}
 			if(GUI.Button(new Rect(sw/2 +10, sh/2, sw / 15, sh/18), "취소")){
 				initialize();

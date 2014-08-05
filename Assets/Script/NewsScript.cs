@@ -5,6 +5,8 @@ public class NewsScript : MonoBehaviour {
 
 	public GUIText TopNews;
 
+	int sw = Screen.width;
+
 	// Use this for initialization
 	void Start () {
 		TextMessage ("게임이 시작되었습니다.");
@@ -17,6 +19,6 @@ public class NewsScript : MonoBehaviour {
 
 	void TextMessage(string TM){
 		TopNews.guiText.text = TM;
-		Instantiate (TopNews, new Vector3 (0.43F, 0.98F, 1), Quaternion.identity);
+		Instantiate (TopNews, new Vector3 ((sw*4/10)*0.001F, 0.98F, 1), Quaternion.identity);
 	}
 }
