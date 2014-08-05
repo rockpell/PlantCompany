@@ -94,7 +94,6 @@ public class AreaGeneration : MonoBehaviour {
 				/* mapArr 내부의 Value 해당 국가 소속값으로 바꿈. 
 				 * Capital1 소속이면 1
 				 * Capital2 소속이면 2... */
-
 			}
 		}
 
