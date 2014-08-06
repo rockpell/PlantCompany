@@ -41,13 +41,9 @@ public class AreaGeneration : MonoBehaviour {
 				cpy.Clear ();
 
 
-				while (nations<4/*cpsel*/) {
+				while (nations<5/*cpsel*/) {
 						x = Random.Range (0, 50);
 						y = Random.Range (0, 50);
-
-						while (nations<5/*cpsel*/) {
-								x = Random.Range (0, 26);
-								y = Random.Range (0, 26);
 
 								if (mapArr [x, y] == 1 || mapArr [x, y] == 2) {
 
@@ -62,12 +58,9 @@ public class AreaGeneration : MonoBehaviour {
 														cpx.RemoveAt (nations);
 														nations--;
 												}
-
 										}
-
 										nations++;
 								}
-						}
 				}
 		}
 
@@ -114,12 +107,12 @@ public class AreaGeneration : MonoBehaviour {
 						}
 				}
 
-				for (x=1; x<25; x++) { 
+				for (x=1; x<50; x++) { 
 						/* 국경지역 Value 변경
 			 * Capital1 국경은 6
 			 * Capital2 국경은 7... */
 
-						for (y=1; y<25; y++) {
+						for (y=1; y<50; y++) {
 
 								//위로 찾기
 								if (mapArr [x, y] != 0 && visit == true) {
@@ -157,14 +150,9 @@ public class AreaGeneration : MonoBehaviour {
 				}
 
 
-				for (x=0; x<50; x++) {
-						for (y=0; y<50; y++) {
-								if (mapArr [x, y] == 1)
-										Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0, x * 1.52F * -1), Quaternion.identity);
-								//if (mapArr [x, y] == 6) Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 1, x * 1.52F * -1), Quaternion.identity);
 
-								for (x=0; x<26; x++) {
-										for (y=0; y<26; y++) {
+								for (x=0; x<50; x++) {
+										for (y=0; y<50; y++) {
 												if (mapArr [x, y] == (int)cpx.Count + 1)
 														Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
 												if (mapArr [x, y] == (int)cpx.Count + 2)
@@ -181,8 +169,6 @@ public class AreaGeneration : MonoBehaviour {
 										q = q * -1;
 								}
 						}
-				}
-		}
 
 	int rangecul(int x,int y) {
 		int [] ran = new int[cpx.Count];

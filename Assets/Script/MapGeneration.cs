@@ -85,7 +85,7 @@ public class MapGeneration: MonoBehaviour {
 				for (i=0; i<50; i++) {
 						if (mapArr [p, i] == 1) Instantiate (Plain, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
 						else if (mapArr [p, i] == 2) Instantiate (Mountain, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
-						else if (mapArr [p, i] == 99) Instantiate (Water, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
+						else if (mapArr [p, i] == 9) Instantiate (Water, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
 						else if (mapArr [p, i] == 3) Instantiate (Desert, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
 						else if (mapArr [p, i] == 0) Instantiate (Sea, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
 					}
