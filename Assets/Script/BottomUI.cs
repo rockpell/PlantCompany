@@ -137,9 +137,9 @@ public class BottomUI : MonoBehaviour {
 	void SelectMethod(int number){
 		switch (number) {
 		case 1:
-			if(PlayerState.Money>=500){
+			if(PlayerState.Money>=300){
 				NationScript.RNation[nationSelect-1].DataLevel += 1;
-				PlayerState.Money -= 500;
+				PlayerState.Money -= 300;
 				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "정보수집을 시작합니다");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
