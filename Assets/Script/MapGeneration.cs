@@ -9,7 +9,7 @@ public class MapGeneration: MonoBehaviour {
 	public Transform Sea;
 
 	int [,] mapArr = new int[26, 26] {
-		{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
+		{99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99},
 		{0,0,3,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0},
 		{0,1,1,1,1,1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0},
 		{0,0,0,1,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0},
@@ -34,7 +34,7 @@ public class MapGeneration: MonoBehaviour {
 		{0,0,0,0,0,0,0,1,1,1,0,0,0,0,1,0,0,0,0,0,1,1,1,1,0,0},
 		{0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9},
+		{99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99},
 	};
 
 	void Start () {
@@ -60,7 +60,7 @@ public class MapGeneration: MonoBehaviour {
 				for (i=0; i<26; i++) {
 						if (mapArr [p, i] == 1) Instantiate (Plain, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
 						else if (mapArr [p, i] == 2) Instantiate (Mountain, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
-						else if (mapArr [p, i] == 9) Instantiate (Water, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
+						else if (mapArr [p, i] == 99) Instantiate (Water, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
 						else if (mapArr [p, i] == 3) Instantiate (Desert, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
 						else if (mapArr [p, i] == 0) Instantiate (Sea, new Vector3 (i* 1.73F + q*0.4325F, 0, p*1.52F*-1), Quaternion.identity);
 					}
