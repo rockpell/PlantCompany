@@ -1,17 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\BottomUI.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\MapGeneration.cs">
     <Files>
+      <File FileName="Assets\Script\MapGeneration.cs" Line="62" Column="4" />
       <File FileName="Assets\Script\BottomUI.cs" Line="119" Column="4" />
       <File FileName="Assets\Script\PlayerState.cs" Line="50" Column="43" />
-      <File FileName="Assets\Script\MapGeneration.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\MapGeneration.cs" Line="101" Column="1" />
       <File FileName="Assets\Script\NationScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\AreaGeneration.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\AreaGeneration.cs" Line="185" Column="4" />
       <File FileName="Assets\Script\SettingUI.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\StateUI.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\NewsGUI.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\NewsScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\CameraMove.cs" Line="29" Column="4" />
+      <File FileName="Assets\Script\CameraMove.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\NationStateUI.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\CapitlaSystem1.cs" Line="1" Column="1" />
     </Files>

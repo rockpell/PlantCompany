@@ -34,41 +34,42 @@ public class AreaGeneration : MonoBehaviour {
 	}
 
 	void rand(/*int cpsel*/){ // 나중에 설정을 통해 나라 갯수 정하면 그 변수 cpsel로 가칭한거임
-		int nations = 0;
-		int x=0, y=0;
-		int gap1 = 0, gap2 = 0;
-		cpx.Clear ();
-		cpy.Clear ();
+				int nations = 0;
+				int x = 0, y = 0;
+				int gap1 = 0, gap2 = 0;
+				cpx.Clear ();
+				cpy.Clear ();
 
-<<<<<<< HEAD
-		while(nations<4/*cpsel*/){
-			x = Random.Range (0,50);
-			y = Random.Range(0,50);
-=======
-		while(nations<5/*cpsel*/){
-			x = Random.Range (0,26);
-			y = Random.Range(0,26);
->>>>>>> rockpell/SiHeoungPark
-		    if(mapArr[x,y] == 1 || mapArr[x,y] == 2){
 
-				cpx.Add (y);
-				cpy.Add (x);
+				while (nations<4/*cpsel*/) {
+						x = Random.Range (0, 50);
+						y = Random.Range (0, 50);
 
-				for(int i=0; i<nations; i++){
-					gap1 = (int) cpx[i] + (int) cpy[i];
-					gap2 = x + y;
-					if(gap2-gap1<7 && gap2-gap1>-7){
-						cpy.RemoveAt (nations);
-						cpx.RemoveAt (nations);
-						nations--;
-					}
+						while (nations<5/*cpsel*/) {
+								x = Random.Range (0, 26);
+								y = Random.Range (0, 26);
 
+								if (mapArr [x, y] == 1 || mapArr [x, y] == 2) {
+
+										cpx.Add (y);
+										cpy.Add (x);
+
+										for (int i=0; i<nations; i++) {
+												gap1 = (int)cpx [i] + (int)cpy [i];
+												gap2 = x + y;
+												if (gap2 - gap1 < 7 && gap2 - gap1 > -7) {
+														cpy.RemoveAt (nations);
+														cpx.RemoveAt (nations);
+														nations--;
+												}
+
+										}
+
+										nations++;
+								}
+						}
 				}
-
-				nations++;
-			}
 		}
-	}
 
 	void capitalGeneration(){
 
@@ -98,81 +99,90 @@ public class AreaGeneration : MonoBehaviour {
 
 	void areacul() {
 
-		int x = 0;
-		int y = 0;
-		int q = -1;
-		bool visit = true; // 방문 표시(true = 처음 & false = 처음 아님)
+				int x = 0;
+				int y = 0;
+				int q = -1;
+				bool visit = true; // 방문 표시(true = 처음 & false = 처음 아님)
 
-		for (x=0; x<50; x++) { // 세로 축 탐색
-			for(y=0;y<50;y++) { // 가로 축 탐색
-				if(mapArr[x,y]==1 || mapArr[x,y]==2 || mapArr[x,y]==3) mapArr[x,y]=rangecul(x,y);
-				/* mapArr 내부의 Value 해당 국가 소속값으로 바꿈. 
+				for (x=0; x<50; x++) { // 세로 축 탐색
+						for (y=0; y<50; y++) { // 가로 축 탐색
+								if (mapArr [x, y] == 1 || mapArr [x, y] == 2 || mapArr [x, y] == 3)
+										mapArr [x, y] = rangecul (x, y);
+								/* mapArr 내부의 Value 해당 국가 소속값으로 바꿈. 
 				 * Capital1 소속이면 1
 				 * Capital2 소속이면 2... */
-			}
-		}
+						}
+				}
 
-		for (x=1; x<25; x++) { 
-			/* 국경지역 Value 변경
+				for (x=1; x<25; x++) { 
+						/* 국경지역 Value 변경
 			 * Capital1 국경은 6
 			 * Capital2 국경은 7... */
 
-			for(y=1;y<25;y++) {
+						for (y=1; y<25; y++) {
 
-				//위로 찾기
-				if(mapArr[x,y]!=0 && visit==true) {
-					if(mapArr[x,y-1]!= mapArr[x,y] && mapArr[x,y-1]!=mapArr[x,y]+(int)cpx.Count) {
-						mapArr[x,y]=mapArr[x,y]+(int)cpx.Count;
-						visit = false;
-					}
+								//위로 찾기
+								if (mapArr [x, y] != 0 && visit == true) {
+										if (mapArr [x, y - 1] != mapArr [x, y] && mapArr [x, y - 1] != mapArr [x, y] + (int)cpx.Count) {
+												mapArr [x, y] = mapArr [x, y] + (int)cpx.Count;
+												visit = false;
+										}
+								}
+
+								//아래로 찾기
+								if (mapArr [x, y] != 0 && visit == true) {
+										if (mapArr [x, y + 1] != mapArr [x, y] && mapArr [x, y + 1] != mapArr [x, y] + (int)cpx.Count) {
+												mapArr [x, y] = mapArr [x, y] + (int)cpx.Count;
+												visit = false;
+										}
+								}
+
+								//왼쪽으로 찾기
+								if (mapArr [x, y] != 0 && visit == true) {
+										if (mapArr [x - 1, y] != mapArr [x, y] && mapArr [x - 1, y] != mapArr [x, y] + (int)cpx.Count) {
+												mapArr [x, y] = mapArr [x, y] + (int)cpx.Count;
+												visit = false;
+										}
+								}
+
+								//오른쪽으로 찾기
+								if (mapArr [x, y] != 0 && visit == true) {
+										if (mapArr [x + 1, y] != mapArr [x, y] && mapArr [x + 1, y] != mapArr [x, y] + (int)cpx.Count) {
+												mapArr [x, y] = mapArr [x, y] + (int)cpx.Count;
+												visit = false;
+										}
+								}
+								visit = true;
+						}
 				}
 
-				//아래로 찾기
-				if(mapArr[x,y]!=0 && visit==true) {
-					if(mapArr[x,y+1]!= mapArr[x,y] && mapArr[x,y+1]!=mapArr[x,y]+(int)cpx.Count) {
-						mapArr[x,y]=mapArr[x,y]+(int)cpx.Count;
-						visit = false;
-					}
-				}
 
-				//왼쪽으로 찾기
-				if(mapArr[x,y]!=0 && visit==true) {
-					if(mapArr[x-1,y]!= mapArr[x,y] && mapArr[x-1,y]!=mapArr[x,y]+(int)cpx.Count) {
-						mapArr[x,y]=mapArr[x,y]+(int)cpx.Count;
-						visit = false;
-					}
-				}
+				for (x=0; x<50; x++) {
+						for (y=0; y<50; y++) {
+								if (mapArr [x, y] == 1)
+										Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0, x * 1.52F * -1), Quaternion.identity);
+								//if (mapArr [x, y] == 6) Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 1, x * 1.52F * -1), Quaternion.identity);
 
-				//오른쪽으로 찾기
-				if(mapArr[x,y]!=0 && visit==true) {
-					if(mapArr[x+1,y]!= mapArr[x,y] && mapArr[x+1,y]!=mapArr[x,y]+(int)cpx.Count) {
-						mapArr[x,y]=mapArr[x,y]+(int)cpx.Count;
-						visit = false;
-					}
+								for (x=0; x<26; x++) {
+										for (y=0; y<26; y++) {
+												if (mapArr [x, y] == (int)cpx.Count + 1)
+														Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
+												if (mapArr [x, y] == (int)cpx.Count + 2)
+														Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
+												if (mapArr [x, y] == (int)cpx.Count + 3)
+														Instantiate (Nation3, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
+												if (mapArr [x, y] == (int)cpx.Count + 4)
+														Instantiate (Nation4, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
+												if (mapArr [x, y] == (int)cpx.Count + 5)
+														Instantiate (Nation5, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
+
+
+										}
+										q = q * -1;
+								}
+						}
 				}
-				visit = true;
-			}
 		}
-
-<<<<<<< HEAD
-		for (x=0; x<50; x++) {
-			for (y=0; y<50; y++) {
-				if (mapArr [x, y] == 1) Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0, x * 1.52F * -1), Quaternion.identity);
-				//if (mapArr [x, y] == 6) Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 1, x * 1.52F * -1), Quaternion.identity);
-=======
-		for (x=0; x<26; x++) {
-			for (y=0; y<26; y++) {
-				if (mapArr [x, y] == (int)cpx.Count+1) Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F , x * 1.52F * -1), Quaternion.identity);
-				if (mapArr [x, y] == (int)cpx.Count+2) Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F , x * 1.52F * -1), Quaternion.identity);
-				if (mapArr [x, y] == (int)cpx.Count+3) Instantiate (Nation3, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F , x * 1.52F * -1), Quaternion.identity);
-				if (mapArr [x, y] == (int)cpx.Count+4) Instantiate (Nation4, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F , x * 1.52F * -1), Quaternion.identity);
-				if (mapArr [x, y] == (int)cpx.Count+5) Instantiate (Nation5, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F , x * 1.52F * -1), Quaternion.identity);
-
->>>>>>> rockpell/SiHeoungPark
-			}
-			q=q*-1;
-		}
-	}
 
 	int rangecul(int x,int y) {
 		int [] ran = new int[cpx.Count];
