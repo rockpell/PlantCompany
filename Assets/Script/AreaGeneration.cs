@@ -12,6 +12,11 @@ public class AreaGeneration : MonoBehaviour {
 	public Transform Capital5;
 	public Transform Nation1;
 	public Transform Nation2;
+	public Transform Nation3;
+	public Transform Nation4;
+	public Transform Nation5;
+	public Transform Nation6;
+
 
 	int [,] mapArr = new int[50, 50];
 	ArrayList cpx = new ArrayList();
@@ -35,9 +40,15 @@ public class AreaGeneration : MonoBehaviour {
 		cpx.Clear ();
 		cpy.Clear ();
 
+<<<<<<< HEAD
 		while(nations<4/*cpsel*/){
 			x = Random.Range (0,50);
 			y = Random.Range(0,50);
+=======
+		while(nations<5/*cpsel*/){
+			x = Random.Range (0,26);
+			y = Random.Range(0,26);
+>>>>>>> rockpell/SiHeoungPark
 		    if(mapArr[x,y] == 1 || mapArr[x,y] == 2){
 
 				cpx.Add (y);
@@ -62,6 +73,7 @@ public class AreaGeneration : MonoBehaviour {
 	void capitalGeneration(){
 
 		int nations;
+		int count = 1;
 
 		int [] cx = new int[cpx.Count];
 		int [] cy = new int[cpy.Count];
@@ -74,8 +86,11 @@ public class AreaGeneration : MonoBehaviour {
 		}
 
 		for (nations=0; nations<cpx.Count; nations++) {
-
-			Instantiate (Capital1, new Vector3 (cx[nations]*1.73F, 0, cy[nations]*1.52F*-1), Quaternion.identity);
+			if(count==1) Instantiate (Capital1, new Vector3 (cx[nations]*1.73F, 0, cy[nations]*1.52F*-1), Quaternion.identity);
+			if(count==2) Instantiate (Capital2, new Vector3 (cx[nations]*1.73F, 0, cy[nations]*1.52F*-1), Quaternion.identity);
+			if(count==3) Instantiate (Capital3, new Vector3 (cx[nations]*1.73F, 0, cy[nations]*1.52F*-1), Quaternion.identity);
+			if(count==4) Instantiate (Capital4, new Vector3 (cx[nations]*1.73F, 0, cy[nations]*1.52F*-1), Quaternion.identity);
+			if(count==5) Instantiate (Capital5, new Vector3 (cx[nations]*1.73F, 0, cy[nations]*1.52F*-1), Quaternion.identity);
 
 		}
 
@@ -97,52 +112,63 @@ public class AreaGeneration : MonoBehaviour {
 			}
 		}
 
-		//for (x=1; x<25; x++) { 
+		for (x=1; x<25; x++) { 
 			/* 국경지역 Value 변경
 			 * Capital1 국경은 6
 			 * Capital2 국경은 7... */
 
-			/*for(y=1;y<25;y++) {
+			for(y=1;y<25;y++) {
 
 				//위로 찾기
 				if(mapArr[x,y]!=0 && visit==true) {
-					if(mapArr[x,y-1]!= mapArr[x,y] && mapArr[x,y-1]!=mapArr[x,y]+5) {
-						mapArr[x,y]=mapArr[x,y]+5;
+					if(mapArr[x,y-1]!= mapArr[x,y] && mapArr[x,y-1]!=mapArr[x,y]+(int)cpx.Count) {
+						mapArr[x,y]=mapArr[x,y]+(int)cpx.Count;
 						visit = false;
 					}
 				}
 
 				//아래로 찾기
 				if(mapArr[x,y]!=0 && visit==true) {
-					if(mapArr[x,y+1]!= mapArr[x,y] && mapArr[x,y+1]!=mapArr[x,y]+5) {
-						mapArr[x,y]=mapArr[x,y]+5;
+					if(mapArr[x,y+1]!= mapArr[x,y] && mapArr[x,y+1]!=mapArr[x,y]+(int)cpx.Count) {
+						mapArr[x,y]=mapArr[x,y]+(int)cpx.Count;
 						visit = false;
 					}
 				}
 
 				//왼쪽으로 찾기
 				if(mapArr[x,y]!=0 && visit==true) {
-					if(mapArr[x-1,y]!= mapArr[x,y] && mapArr[x-1,y]!=mapArr[x,y]+5) {
-						mapArr[x,y]=mapArr[x,y]+5;
+					if(mapArr[x-1,y]!= mapArr[x,y] && mapArr[x-1,y]!=mapArr[x,y]+(int)cpx.Count) {
+						mapArr[x,y]=mapArr[x,y]+(int)cpx.Count;
 						visit = false;
 					}
 				}
 
 				//오른쪽으로 찾기
 				if(mapArr[x,y]!=0 && visit==true) {
-					if(mapArr[x+1,y]!= mapArr[x,y] && mapArr[x+1,y]!=mapArr[x,y]+5) {
-						mapArr[x,y]=mapArr[x,y]+5;
+					if(mapArr[x+1,y]!= mapArr[x,y] && mapArr[x+1,y]!=mapArr[x,y]+(int)cpx.Count) {
+						mapArr[x,y]=mapArr[x,y]+(int)cpx.Count;
 						visit = false;
 					}
 				}
 				visit = true;
 			}
-		}*/
+		}
 
+<<<<<<< HEAD
 		for (x=0; x<50; x++) {
 			for (y=0; y<50; y++) {
 				if (mapArr [x, y] == 1) Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0, x * 1.52F * -1), Quaternion.identity);
 				//if (mapArr [x, y] == 6) Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 1, x * 1.52F * -1), Quaternion.identity);
+=======
+		for (x=0; x<26; x++) {
+			for (y=0; y<26; y++) {
+				if (mapArr [x, y] == (int)cpx.Count+1) Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F , x * 1.52F * -1), Quaternion.identity);
+				if (mapArr [x, y] == (int)cpx.Count+2) Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F , x * 1.52F * -1), Quaternion.identity);
+				if (mapArr [x, y] == (int)cpx.Count+3) Instantiate (Nation3, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F , x * 1.52F * -1), Quaternion.identity);
+				if (mapArr [x, y] == (int)cpx.Count+4) Instantiate (Nation4, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F , x * 1.52F * -1), Quaternion.identity);
+				if (mapArr [x, y] == (int)cpx.Count+5) Instantiate (Nation5, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F , x * 1.52F * -1), Quaternion.identity);
+
+>>>>>>> rockpell/SiHeoungPark
 			}
 			q=q*-1;
 		}
