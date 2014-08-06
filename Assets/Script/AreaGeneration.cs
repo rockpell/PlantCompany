@@ -13,7 +13,7 @@ public class AreaGeneration : MonoBehaviour {
 	public Transform Nation1;
 	public Transform Nation2;
 
-	int [,] mapArr = new int[26, 26];
+	int [,] mapArr = new int[50, 50];
 	ArrayList cpx = new ArrayList();
 	ArrayList cpy = new ArrayList();
 	
@@ -36,8 +36,8 @@ public class AreaGeneration : MonoBehaviour {
 		cpy.Clear ();
 
 		while(nations<4/*cpsel*/){
-			x = Random.Range (0,26);
-			y = Random.Range(0,26);
+			x = Random.Range (0,50);
+			y = Random.Range(0,50);
 		    if(mapArr[x,y] == 1 || mapArr[x,y] == 2){
 
 				cpx.Add (y);
@@ -88,8 +88,8 @@ public class AreaGeneration : MonoBehaviour {
 		int q = -1;
 		bool visit = true; // 방문 표시(true = 처음 & false = 처음 아님)
 
-		for (x=0; x<26; x++) { // 세로 축 탐색
-			for(y=0;y<26;y++) { // 가로 축 탐색
+		for (x=0; x<50; x++) { // 세로 축 탐색
+			for(y=0;y<50;y++) { // 가로 축 탐색
 				if(mapArr[x,y]==1 || mapArr[x,y]==2 || mapArr[x,y]==3) mapArr[x,y]=rangecul(x,y);
 				/* mapArr 내부의 Value 해당 국가 소속값으로 바꿈. 
 				 * Capital1 소속이면 1
@@ -139,8 +139,8 @@ public class AreaGeneration : MonoBehaviour {
 			}
 		}*/
 
-		for (x=0; x<26; x++) {
-			for (y=0; y<26; y++) {
+		for (x=0; x<50; x++) {
+			for (y=0; y<50; y++) {
 				if (mapArr [x, y] == 1) Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0, x * 1.52F * -1), Quaternion.identity);
 				//if (mapArr [x, y] == 6) Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 1, x * 1.52F * -1), Quaternion.identity);
 			}

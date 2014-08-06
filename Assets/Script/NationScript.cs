@@ -20,13 +20,17 @@ public class NationScript : MonoBehaviour {
 		public int DataLevel; // 정보수집 단계
 	}
 
+	public static int time_nationProfit=1;
 	public static allNation [] RNation = new allNation[4];
 	public static int [] nationProfit = new int[RNation.Length];
 
+
+
 	float _timerForText;
+
 	void Start () {
 		for(int i=0; i<RNation.Length; i++){ // 국가별 수익 초기화
-			nationProfit[i] = 1;
+			nationProfit[i] = time_nationProfit;
 		}
 		RNation [0].Name = "First";
 	}
@@ -41,4 +45,5 @@ public class NationScript : MonoBehaviour {
 			}
 		}
 	}
+
 }
