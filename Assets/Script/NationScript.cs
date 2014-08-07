@@ -21,7 +21,7 @@ public class NationScript : MonoBehaviour {
 	}
 
 	public static int time_nationProfit=1;
-	public static allNation [] RNation = new allNation[4];
+	public static allNation [] RNation = new allNation[5];
 	public static int [] nationProfit = new int[RNation.Length];
 
 

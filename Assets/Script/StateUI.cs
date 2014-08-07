@@ -6,6 +6,13 @@ public class StateUI : MonoBehaviour {
 	public Vector2 scrollPosition = Vector2.zero;
 
 	GUIText State;
+	
+	GUIStyle FirstColor = new GUIStyle();
+	GUIStyle SecondColor = new GUIStyle();
+	GUIStyle ThirdColor = new GUIStyle();
+	GUIStyle FourthColor = new GUIStyle();
+	GUIStyle FifthColor = new GUIStyle();
+	GUIStyle SixthColor = new GUIStyle();
 
 	int sw = Screen.width;
 	int sh = Screen.height;
@@ -21,16 +28,40 @@ public class StateUI : MonoBehaviour {
 
 	void Start () {
 		State = gameObject.GetComponent<GUIText>();
+
+		FirstColor.normal.textColor = Color.white;
+		SecondColor.normal.textColor = Color.white;
+		ThirdColor.normal.textColor = Color.white;
+		FourthColor.normal.textColor = Color.white;
+		FifthColor.normal.textColor = Color.white;
+		SixthColor.normal.textColor = Color.white;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		State.text = "현재 자금 보유량 : " + string.Format("{0}",PlayerState.Money);
+
+		TextColorChange ();
 	}
 
 	void initialize(){
 		actionButton = false;
 		selectNumber = 0;
+	}
+
+	void TextColorChange(){
+		if (NationScript.RNation [0].PlantData.water == 1)
+						FirstColor.normal.textColor = Color.red;
+		if (NationScript.RNation [0].PlantData.fire == 1)
+						SecondColor.normal.textColor = Color.red;
+		if (NationScript.RNation [0].PlantData.nuclear == 1)
+						ThirdColor.normal.textColor = Color.red;
+		if (NationScript.RNation [0].PlantData.sun == 1)
+						FourthColor.normal.textColor = Color.red;
+		if (NationScript.RNation [0].PlantData.wind == 1)
+						FifthColor.normal.textColor = Color.red;
+		if (NationScript.RNation [0].PlantData.gravity == 1)
+						SixthColor.normal.textColor = Color.red;
 	}
 
 	void OnGUI(){
@@ -53,17 +84,24 @@ public class StateUI : MonoBehaviour {
 		GUI.Button (new Rect(0,sh/3+sh/8,sw/15,sh/16),"Sample3");
 
 		if (sample1ch) {
-			GUI.Box (new Rect (sw/2 -sw/5, sh/2-sh/4, sw*2 / 5, sh/2), "국가별 정보");
-			if(GUI.Button(new Rect(sw/2 +sw/5 - 30 ,sh/2-sh/4,30,20),"X"))
+			GUI.Box (new Rect (sw/2 -sw/5, sh/2-sh*3/8, sw*2 / 5, sh/2), "국가별 정보");
+			if(GUI.Button(new Rect(sw/2 +sw/5 - 30 ,sh/2-sh*3/8,30,20),"X"))
 				sample1ch = false;
-			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh/4 + 40, 40, 20), "국가명");
-			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh/4 + 80, 40, 20), "성향");
-			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh/4 + 120, 40, 20), "재산");
-			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh/4 + 160, 70, 20), "소유 발전소");
+			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh*3/8 + 40, 40, 20), "국가명");
+			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh*3/8 + 80, 40, 20), "성향");
+			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh*3/8 + 120, 40, 20), "재산");
+			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh*3/8 + 160, 70, 20), "소유 발전소");
 
-			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh/4 + 40, 40, 20), ""+NationScript.RNation[0].Name);
-			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh/4 + 80, 40, 20), ""+NationScript.RNation[0].Tendancy);
-			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh/4 + 120, 40, 20), ""+NationScript.RNation[0].Money);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 40, 40, 20), ""+NationScript.RNation[0].Name);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 80, 40, 20), ""+NationScript.RNation[0].Tendancy);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 120, 40, 20), ""+NationScript.RNation[0].Money);
+
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 160, 40, 20), "수력",FirstColor);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 180, 40, 20), "화력",SecondColor);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 200, 40, 20), "원자력",ThirdColor);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 220, 40, 20), "태양광",FourthColor);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor);
 		}
 
 		if (sample2ch) {
@@ -115,7 +153,6 @@ public class StateUI : MonoBehaviour {
 			if(GUI.Button(new Rect(sw/2 - sw/15, sh/2, sw / 15, sh/18), "확인")){
 				SelectMethod(selectNumber);
 				initialize();
-				abc.playerProfit();
 
 			}
 			if(GUI.Button(new Rect(sw/2 +10, sh/2, sw / 15, sh/18), "취소")){
