@@ -54,6 +54,7 @@
      <Compile Include="Assets\Script\CapitalSystem4.cs" />
      <Compile Include="Assets\Script\CapitalSystem5.cs" />
      <Compile Include="Assets\Script\CapitlaSystem1.cs" />
+     <Compile Include="Assets\Script\GameStart.cs" />
      <Compile Include="Assets\Script\MapGeneration.cs" />
      <Compile Include="Assets\Script\NationScript.cs" />
      <Compile Include="Assets\Script\NationStateUI.cs" />

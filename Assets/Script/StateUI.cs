@@ -105,41 +105,41 @@ public class StateUI : MonoBehaviour {
 		}
 
 		if (sample2ch) {
-			GUI.Box (new Rect (sw/2 -sw/5, sh/2-sh/4, sw*2 / 5, sh/2+20), "발전기술");
-			if(GUI.Button(new Rect(sw/2 +sw/5 - 30 ,sh/2-sh/4,30,20),"X"))
+			GUI.Box (new Rect (sw/2 -sw/5, sh/2-sh*3/8, sw*2 / 5, sh/2+20), "발전기술");
+			if(GUI.Button(new Rect(sw/2 +sw/5 - 30 ,sh/2-sh*3/8,30,20),"X"))
 				sample2ch = false;
-			scrollPosition = GUI.BeginScrollView (new Rect (sw/2 -sw/5, sh/2-sh/4+20, sw*2 / 5, sh/2), scrollPosition, new Rect (0, 0, sw*2 / 5-20, sh*2/3));
-			GUI.Label(new Rect(0, sh/16, sw/5, sh/16),"수력발전 " + LevelText(PlayerState.waterLevel, 1));
+			scrollPosition = GUI.BeginScrollView (new Rect (sw/2 -sw/5, sh/2-sh*3/8+20, sw*2 / 5, sh/2), scrollPosition, new Rect (0, 0, sw*2 / 5-20, sh*2/3));
+			GUI.Label(new Rect(10, sh/16, sw/5, sh/16),"수력발전 " + LevelText(PlayerState.waterLevel, 1));
 			if(GUI.Button(new Rect(sw/2 -sw/5, sh/16, sw/16, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 1;
 				actionText = "수력발전에 투자하시겠습니까?";
 			}
-			GUI.Label(new Rect(0, sh*2/16, sw/5, sh/16),"화력발전 " + LevelText(PlayerState.fireLevel, 2));
+			GUI.Label(new Rect(10, sh*2/16, sw/5, sh/16),"화력발전 " + LevelText(PlayerState.fireLevel, 2));
 			if(GUI.Button(new Rect(sw/2 -sw/5, sh*2/16, sw/16, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 2;
 				actionText = "화력발전에 투자하시겠습니까?";
 			}
-			GUI.Label(new Rect(0, sh*3/16, sw/5, sh/16),"원자력발전 " + LevelText(PlayerState.nuclearLevel, 3));
+			GUI.Label(new Rect(10, sh*3/16, sw/5, sh/16),"원자력발전 " + LevelText(PlayerState.nuclearLevel, 3));
 			if(GUI.Button(new Rect(sw/2 -sw/5, sh*3/16, sw/16, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 3;
 				actionText = "원자력발전에 투자하시겠습니까?";
 			}
-			GUI.Label(new Rect(0, sh*4/16, sw/5, sh/16),"태양광발전 " + LevelText(PlayerState.sunLevel, 4));
+			GUI.Label(new Rect(10, sh*4/16, sw/5, sh/16),"태양광발전 " + LevelText(PlayerState.sunLevel, 4));
 			if(GUI.Button(new Rect(sw/2 -sw/5, sh*4/16, sw/16, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 4;
 				actionText = "태양광발전에 투자하시겠습니까?";
 			}
-			GUI.Label(new Rect(0, sh*5/16, sw/5, sh/16),"풍력발전 " + LevelText(PlayerState.windLevel, 5));
+			GUI.Label(new Rect(10, sh*5/16, sw/5, sh/16),"풍력발전 " + LevelText(PlayerState.windLevel, 5));
 			if(GUI.Button(new Rect(sw/2 -sw/5, sh*5/16, sw/16, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 5;
 				actionText = "풍력발전에 투자하시겠습니까?";
 			}
-			GUI.Label(new Rect(0, sh*6/16, sw/5, sh/16),"중력발전 " + LevelText(PlayerState.gravityLevel, 6));
+			GUI.Label(new Rect(10, sh*6/16, sw/5, sh/16),"중력발전 " + LevelText(PlayerState.gravityLevel, 6));
 			if(GUI.Button(new Rect(sw/2 -sw/5, sh*6/16, sw/16, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 6;

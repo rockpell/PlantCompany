@@ -20,7 +20,8 @@ public class SettingUI : MonoBehaviour {
 	}
 
 	void OnMouseUp(){
-		SettingOn = true;
+		if (SettingOn)SettingOn = false;
+		else SettingOn = true;
 	}
 
 	void OnGUI(){
