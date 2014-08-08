@@ -32,7 +32,11 @@ public class NationScript : MonoBehaviour {
 		for(int i=0; i<RNation.Length; i++){ // 국가별 수익 초기화
 			nationProfit[i] = time_nationProfit;
 		}
-		RNation [0].Name = "First";
+		RNation[0].Name = "First";
+		RNation[1].Name = "Second";
+		RNation[2].Name = "Third";
+		RNation[3].Name = "Fourth";
+		RNation[4].Name = "Fifth";
 	}
 
 	void Update () {

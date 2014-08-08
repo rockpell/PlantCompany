@@ -6,13 +6,41 @@ public class StateUI : MonoBehaviour {
 	public Vector2 scrollPosition = Vector2.zero;
 
 	GUIText State;
-	
+
 	GUIStyle FirstColor = new GUIStyle();
 	GUIStyle SecondColor = new GUIStyle();
 	GUIStyle ThirdColor = new GUIStyle();
 	GUIStyle FourthColor = new GUIStyle();
 	GUIStyle FifthColor = new GUIStyle();
 	GUIStyle SixthColor = new GUIStyle();
+
+	GUIStyle FirstColor2 = new GUIStyle();
+	GUIStyle SecondColor2 = new GUIStyle();
+	GUIStyle ThirdColor2 = new GUIStyle();
+	GUIStyle FourthColor2 = new GUIStyle();
+	GUIStyle FifthColor2 = new GUIStyle();
+	GUIStyle SixthColor2 = new GUIStyle();
+
+	GUIStyle FirstColor3 = new GUIStyle();
+	GUIStyle SecondColor3 = new GUIStyle();
+	GUIStyle ThirdColor3 = new GUIStyle();
+	GUIStyle FourthColor3 = new GUIStyle();
+	GUIStyle FifthColor3 = new GUIStyle();
+	GUIStyle SixthColor3 = new GUIStyle();
+
+	GUIStyle FirstColor4 = new GUIStyle();
+	GUIStyle SecondColor4 = new GUIStyle();
+	GUIStyle ThirdColor4 = new GUIStyle();
+	GUIStyle FourthColor4 = new GUIStyle();
+	GUIStyle FifthColor4 = new GUIStyle();
+	GUIStyle SixthColor4 = new GUIStyle();
+
+	GUIStyle FirstColor5 = new GUIStyle();
+	GUIStyle SecondColor5 = new GUIStyle();
+	GUIStyle ThirdColor5 = new GUIStyle();
+	GUIStyle FourthColor5 = new GUIStyle();
+	GUIStyle FifthColor5 = new GUIStyle();
+	GUIStyle SixthColor5 = new GUIStyle();
 
 	int sw = Screen.width;
 	int sh = Screen.height;
@@ -35,6 +63,34 @@ public class StateUI : MonoBehaviour {
 		FourthColor.normal.textColor = Color.white;
 		FifthColor.normal.textColor = Color.white;
 		SixthColor.normal.textColor = Color.white;
+
+		FirstColor2.normal.textColor = Color.white;
+		SecondColor2.normal.textColor = Color.white;
+		ThirdColor2.normal.textColor = Color.white;
+		FourthColor2.normal.textColor = Color.white;
+		FifthColor2.normal.textColor = Color.white;
+		SixthColor2.normal.textColor = Color.white;
+
+		FirstColor3.normal.textColor = Color.white;
+		SecondColor3.normal.textColor = Color.white;
+		ThirdColor3.normal.textColor = Color.white;
+		FourthColor3.normal.textColor = Color.white;
+		FifthColor3.normal.textColor = Color.white;
+		SixthColor3.normal.textColor = Color.white;
+
+		FirstColor4.normal.textColor = Color.white;
+		SecondColor4.normal.textColor = Color.white;
+		ThirdColor4.normal.textColor = Color.white;
+		FourthColor4.normal.textColor = Color.white;
+		FifthColor4.normal.textColor = Color.white;
+		SixthColor4.normal.textColor = Color.white;
+
+		FirstColor5.normal.textColor = Color.white;
+		SecondColor5.normal.textColor = Color.white;
+		ThirdColor5.normal.textColor = Color.white;
+		FourthColor5.normal.textColor = Color.white;
+		FifthColor5.normal.textColor = Color.white;
+		SixthColor5.normal.textColor = Color.white;
 	}
 	
 	// Update is called once per frame
@@ -62,6 +118,58 @@ public class StateUI : MonoBehaviour {
 						FifthColor.normal.textColor = Color.red;
 		if (NationScript.RNation [0].PlantData.gravity == 1)
 						SixthColor.normal.textColor = Color.red;
+
+		if (NationScript.RNation [1].PlantData.water == 1)
+			FirstColor2.normal.textColor = Color.red;
+		if (NationScript.RNation [1].PlantData.fire == 1)
+			SecondColor2.normal.textColor = Color.red;
+		if (NationScript.RNation [1].PlantData.nuclear == 1)
+			ThirdColor2.normal.textColor = Color.red;
+		if (NationScript.RNation [1].PlantData.sun == 1)
+			FourthColor2.normal.textColor = Color.red;
+		if (NationScript.RNation [1].PlantData.wind == 1)
+			FifthColor2.normal.textColor = Color.red;
+		if (NationScript.RNation [1].PlantData.gravity == 1)
+			SixthColor2.normal.textColor = Color.red;
+
+		if (NationScript.RNation [2].PlantData.water == 1)
+			FirstColor3.normal.textColor = Color.red;
+		if (NationScript.RNation [2].PlantData.fire == 1)
+			SecondColor3.normal.textColor = Color.red;
+		if (NationScript.RNation [2].PlantData.nuclear == 1)
+			ThirdColor3.normal.textColor = Color.red;
+		if (NationScript.RNation [2].PlantData.sun == 1)
+			FourthColor3.normal.textColor = Color.red;
+		if (NationScript.RNation [2].PlantData.wind == 1)
+			FifthColor3.normal.textColor = Color.red;
+		if (NationScript.RNation [2].PlantData.gravity == 1)
+			SixthColor3.normal.textColor = Color.red;
+
+		if (NationScript.RNation [3].PlantData.water == 1)
+			FirstColor4.normal.textColor = Color.red;
+		if (NationScript.RNation [3].PlantData.fire == 1)
+			SecondColor4.normal.textColor = Color.red;
+		if (NationScript.RNation [3].PlantData.nuclear == 1)
+			ThirdColor4.normal.textColor = Color.red;
+		if (NationScript.RNation [3].PlantData.sun == 1)
+			FourthColor4.normal.textColor = Color.red;
+		if (NationScript.RNation [3].PlantData.wind == 1)
+			FifthColor4.normal.textColor = Color.red;
+		if (NationScript.RNation [3].PlantData.gravity == 1)
+			SixthColor4.normal.textColor = Color.red;
+
+		if (NationScript.RNation [4].PlantData.water == 1)
+			FirstColor5.normal.textColor = Color.red;
+		if (NationScript.RNation [4].PlantData.fire == 1)
+			SecondColor5.normal.textColor = Color.red;
+		if (NationScript.RNation [4].PlantData.nuclear == 1)
+			ThirdColor5.normal.textColor = Color.red;
+		if (NationScript.RNation [4].PlantData.sun == 1)
+			FourthColor5.normal.textColor = Color.red;
+		if (NationScript.RNation [4].PlantData.wind == 1)
+			FifthColor5.normal.textColor = Color.red;
+		if (NationScript.RNation [4].PlantData.gravity == 1)
+			SixthColor5.normal.textColor = Color.red;
 	}
 
 	void OnGUI(){
@@ -84,8 +192,8 @@ public class StateUI : MonoBehaviour {
 		GUI.Button (new Rect(0,sh/3+sh/8,sw/15,sh/16),"Sample3");
 
 		if (sample1ch) {
-			GUI.Box (new Rect (sw/2 -sw/5, sh/2-sh*3/8, sw*2 / 5, sh/2), "국가별 정보");
-			if(GUI.Button(new Rect(sw/2 +sw/5 - 30 ,sh/2-sh*3/8,30,20),"X"))
+			GUI.Box (new Rect (sw/2 -sw/5, sh/2-sh*3/8, sw*2 / 5+20, sh/2+20), "국가별 정보");
+			if(GUI.Button(new Rect(sw/2 +sw/5 - 10 ,sh/2-sh*3/8,30,20),"X"))
 				sample1ch = false;
 			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh*3/8 + 40, 40, 20), "국가명");
 			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh*3/8 + 80, 40, 20), "성향");
@@ -96,12 +204,56 @@ public class StateUI : MonoBehaviour {
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 80, 40, 20), ""+NationScript.RNation[0].Tendancy);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 120, 40, 20), ""+NationScript.RNation[0].Money);
 
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 40, 40, 20), ""+NationScript.RNation[1].Name);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 80, 40, 20), ""+NationScript.RNation[1].Tendancy);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 120, 40, 20), ""+NationScript.RNation[1].Money);
+
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 40, 40, 20), ""+NationScript.RNation[2].Name);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 80, 40, 20), ""+NationScript.RNation[2].Tendancy);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 120, 40, 20), ""+NationScript.RNation[2].Money);
+
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 40, 40, 20), ""+NationScript.RNation[3].Name);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 80, 40, 20), ""+NationScript.RNation[3].Tendancy);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 120, 40, 20), ""+NationScript.RNation[3].Money);
+
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 40, 40, 20), ""+NationScript.RNation[4].Name);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 80, 40, 20), ""+NationScript.RNation[4].Tendancy);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 120, 40, 20), ""+NationScript.RNation[4].Money);
+
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 160, 40, 20), "수력",FirstColor);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 180, 40, 20), "화력",SecondColor);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 200, 40, 20), "원자력",ThirdColor);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 220, 40, 20), "태양광",FourthColor);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor);
+
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 160, 40, 20), "수력",FirstColor2);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 180, 40, 20), "화력",SecondColor2);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 200, 40, 20), "원자력",ThirdColor2);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 220, 40, 20), "태양광",FourthColor2);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor2);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor2);
+
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 160, 40, 20), "수력",FirstColor3);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 180, 40, 20), "화력",SecondColor3);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 200, 40, 20), "원자력",ThirdColor3);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 220, 40, 20), "태양광",FourthColor3);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor3);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor3);
+
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 160, 40, 20), "수력",FirstColor4);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 180, 40, 20), "화력",SecondColor4);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 200, 40, 20), "원자력",ThirdColor4);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 220, 40, 20), "태양광",FourthColor4);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor4);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor4);
+
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 160, 40, 20), "수력",FirstColor5);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 180, 40, 20), "화력",SecondColor5);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 200, 40, 20), "원자력",ThirdColor5);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 220, 40, 20), "태양광",FourthColor5);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor5);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor5);
 		}
 
 		if (sample2ch) {

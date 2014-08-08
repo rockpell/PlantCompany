@@ -1,13 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\GameStart.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\StateUI.cs">
     <Files>
-      <File FileName="Assets\Script\BottomUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\BottomUI.cs" Line="18" Column="2" />
       <File FileName="Assets\Script\PlayerState.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\NationScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\AreaGeneration.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\NationScript.cs" Line="39" Column="27" />
       <File FileName="Assets\Script\SettingUI.cs" Line="31" Column="60" />
-      <File FileName="Assets\Script\StateUI.cs" Line="224" Column="46" />
+      <File FileName="Assets\Script\StateUI.cs" Line="191" Column="6" />
       <File FileName="Assets\Script\NewsGUI.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\NewsScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\CameraMove.cs" Line="1" Column="1" />
