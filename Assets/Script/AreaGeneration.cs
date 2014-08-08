@@ -45,22 +45,22 @@ public class AreaGeneration : MonoBehaviour {
 						x = Random.Range (0, 50);
 						y = Random.Range (0, 50);
 
-								if (mapArr [x, y] == 1 || mapArr [x, y] == 2) {
+						if (mapArr [x, y] == 1 || mapArr [x, y] == 2 || mapArr [x,y] == 3) {
 
-										cpx.Add (y);
-										cpy.Add (x);
-
-										for (int i=0; i<nations; i++) {
-												gap1 = (int)cpx [i] + (int)cpy [i];
-												gap2 = x + y;
-												if (gap2 - gap1 < 7 && gap2 - gap1 > -7) {
-														cpy.RemoveAt (nations);
-														cpx.RemoveAt (nations);
-														nations--;
-												}
+								cpx.Add (y);
+								cpy.Add (x);
+			
+								for (int i=0; i<nations; i++) {
+										gap1 = (int)cpx [i] + (int)cpy [i];
+										gap2 = x + y;
+										if (gap2 - gap1 < 7 && gap2 - gap1 > -7) {
+												cpy.RemoveAt (nations);
+												cpx.RemoveAt (nations);
+												nations--;
 										}
-										nations++;
 								}
+								nations++;
+						}
 				}
 		}
 
@@ -85,6 +85,7 @@ public class AreaGeneration : MonoBehaviour {
 			if(count==3) Instantiate (Capital3, new Vector3 (cx[nations]*1.73F, 0, cy[nations]*1.52F*-1), Quaternion.identity);
 			if(count==4) Instantiate (Capital4, new Vector3 (cx[nations]*1.73F, 0, cy[nations]*1.52F*-1), Quaternion.identity);
 			if(count==5) Instantiate (Capital5, new Vector3 (cx[nations]*1.73F, 0, cy[nations]*1.52F*-1), Quaternion.identity);
+			count++;
 
 		}
 
@@ -99,20 +100,19 @@ public class AreaGeneration : MonoBehaviour {
 
 				for (x=0; x<50; x++) { // 세로 축 탐색
 						for (y=0; y<50; y++) { // 가로 축 탐색
-								if (mapArr [x, y] == 1 || mapArr [x, y] == 2 || mapArr [x, y] == 3)
-										mapArr [x, y] = rangecul (x, y);
+								if (mapArr [x, y] == 1 || mapArr [x, y] == 2 || mapArr [x, y] == 3) mapArr [x, y] = rangecul (x, y);
 								/* mapArr 내부의 Value 해당 국가 소속값으로 바꿈. 
 				 * Capital1 소속이면 1
 				 * Capital2 소속이면 2... */
 						}
 				}
 
-				for (x=1; x<50; x++) { 
+				for (x=1; x<49; x++) { 
 						/* 국경지역 Value 변경
 			 * Capital1 국경은 6
 			 * Capital2 국경은 7... */
 
-						for (y=1; y<50; y++) {
+						for (y=1; y<49; y++) {
 
 								//위로 찾기
 								if (mapArr [x, y] != 0 && visit == true) {
@@ -151,24 +151,17 @@ public class AreaGeneration : MonoBehaviour {
 
 
 
-								for (x=0; x<50; x++) {
-										for (y=0; y<50; y++) {
-												if (mapArr [x, y] == (int)cpx.Count + 1)
-														Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
-												if (mapArr [x, y] == (int)cpx.Count + 2)
-														Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
-												if (mapArr [x, y] == (int)cpx.Count + 3)
-														Instantiate (Nation3, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
-												if (mapArr [x, y] == (int)cpx.Count + 4)
-														Instantiate (Nation4, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
-												if (mapArr [x, y] == (int)cpx.Count + 5)
-														Instantiate (Nation5, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
-
-
-										}
-										q = q * -1;
-								}
+				for (x=0; x<50; x++) {
+						for (y=0; y<50; y++) {
+								if (mapArr [x, y] == (int)cpx.Count + 1) Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
+								if (mapArr [x, y] == (int)cpx.Count + 2) Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
+								if (mapArr [x, y] == (int)cpx.Count + 3) Instantiate (Nation3, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
+								if (mapArr [x, y] == (int)cpx.Count + 4) Instantiate (Nation4, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
+								if (mapArr [x, y] == (int)cpx.Count + 5) Instantiate (Nation5, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
 						}
+						q = q * -1;
+				}
+		}
 
 	int rangecul(int x,int y) {
 		int [] ran = new int[cpx.Count];
