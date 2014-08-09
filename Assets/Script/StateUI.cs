@@ -227,12 +227,26 @@ public class StateUI : MonoBehaviour {
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor);
 
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90+40, sh/2-sh*3/8 + 160, 40, 20), ""+NationScript.RNation[0].PlantNumber.water);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90+40, sh/2-sh*3/8 + 180, 40, 20), ""+NationScript.RNation[0].PlantNumber.fire);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90+40, sh/2-sh*3/8 + 200, 40, 20), ""+NationScript.RNation[0].PlantNumber.nuclear);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90+40, sh/2-sh*3/8 + 220, 40, 20), ""+NationScript.RNation[0].PlantNumber.sun);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90+40, sh/2-sh*3/8 + 240, 40, 20), ""+NationScript.RNation[0].PlantNumber.wind);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90+40, sh/2-sh*3/8 + 260, 40, 20), ""+NationScript.RNation[0].PlantNumber.gravity);
+
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 160, 40, 20), "수력",FirstColor2);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 180, 40, 20), "화력",SecondColor2);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 200, 40, 20), "원자력",ThirdColor2);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 220, 40, 20), "태양광",FourthColor2);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor2);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor2);
+
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60+40, sh/2-sh*3/8 + 160, 40, 20), ""+NationScript.RNation[1].PlantNumber.water);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60+40, sh/2-sh*3/8 + 180, 40, 20), ""+NationScript.RNation[1].PlantNumber.fire);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60+40, sh/2-sh*3/8 + 200, 40, 20), ""+NationScript.RNation[1].PlantNumber.nuclear);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60+40, sh/2-sh*3/8 + 220, 40, 20), ""+NationScript.RNation[1].PlantNumber.sun);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60+40, sh/2-sh*3/8 + 240, 40, 20), ""+NationScript.RNation[1].PlantNumber.wind);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 60+40, sh/2-sh*3/8 + 260, 40, 20), ""+NationScript.RNation[1].PlantNumber.gravity);
 
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 160, 40, 20), "수력",FirstColor3);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 180, 40, 20), "화력",SecondColor3);
@@ -241,6 +255,13 @@ public class StateUI : MonoBehaviour {
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor3);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor3);
 
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120+40, sh/2-sh*3/8 + 160, 40, 20), ""+NationScript.RNation[2].PlantNumber.water);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120+40, sh/2-sh*3/8 + 180, 40, 20), ""+NationScript.RNation[2].PlantNumber.fire);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120+40, sh/2-sh*3/8 + 200, 40, 20), ""+NationScript.RNation[2].PlantNumber.nuclear);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120+40, sh/2-sh*3/8 + 220, 40, 20), ""+NationScript.RNation[2].PlantNumber.sun);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120+40, sh/2-sh*3/8 + 240, 40, 20), ""+NationScript.RNation[2].PlantNumber.wind);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 120+40, sh/2-sh*3/8 + 260, 40, 20), ""+NationScript.RNation[2].PlantNumber.gravity);
+
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 160, 40, 20), "수력",FirstColor4);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 180, 40, 20), "화력",SecondColor4);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 200, 40, 20), "원자력",ThirdColor4);
@@ -248,12 +269,26 @@ public class StateUI : MonoBehaviour {
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor4);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor4);
 
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180+40, sh/2-sh*3/8 + 160, 40, 20), ""+NationScript.RNation[3].PlantNumber.water);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180+40, sh/2-sh*3/8 + 180, 40, 20), ""+NationScript.RNation[3].PlantNumber.fire);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180+40, sh/2-sh*3/8 + 200, 40, 20), ""+NationScript.RNation[3].PlantNumber.nuclear);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180+40, sh/2-sh*3/8 + 220, 40, 20), ""+NationScript.RNation[3].PlantNumber.sun);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180+40, sh/2-sh*3/8 + 240, 40, 20), ""+NationScript.RNation[3].PlantNumber.wind);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 180+40, sh/2-sh*3/8 + 260, 40, 20), ""+NationScript.RNation[3].PlantNumber.gravity);
+
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 160, 40, 20), "수력",FirstColor5);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 180, 40, 20), "화력",SecondColor5);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 200, 40, 20), "원자력",ThirdColor5);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 220, 40, 20), "태양광",FourthColor5);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 240, 40, 20), "풍력",FifthColor5);
 			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240, sh/2-sh*3/8 + 260, 40, 20), "중력",SixthColor5);
+
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240+40, sh/2-sh*3/8 + 160, 40, 20), ""+NationScript.RNation[4].PlantNumber.water);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240+40, sh/2-sh*3/8 + 180, 40, 20), ""+NationScript.RNation[4].PlantNumber.fire);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240+40, sh/2-sh*3/8 + 200, 40, 20), ""+NationScript.RNation[4].PlantNumber.nuclear);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240+40, sh/2-sh*3/8 + 220, 40, 20), ""+NationScript.RNation[4].PlantNumber.sun);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240+40, sh/2-sh*3/8 + 240, 40, 20), ""+NationScript.RNation[4].PlantNumber.wind);
+			GUI.Label(new Rect (sw/2 -sw/5 + 20 +90 + 240+40, sh/2-sh*3/8 + 260, 40, 20), ""+NationScript.RNation[4].PlantNumber.gravity);
 		}
 
 		if (sample2ch) {

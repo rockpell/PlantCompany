@@ -20,13 +20,6 @@ public class PlayerState : MonoBehaviour {
 	public static int windLevel=0;
 	public static int gravityLevel=0;
 
-	public static int water_factory=0; //발전소 개수
-	public static int fire_factory=0;
-	public static int sun_factory=0;
-	public static int nuclear_factory=0;
-	public static int wind_factory=0;
-	public static int gravity_factory=0;
-
 	int waterNumber=0;
 	int fireNumber=0;
 	int nuclearNumber=0;

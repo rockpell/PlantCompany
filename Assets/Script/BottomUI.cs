@@ -149,7 +149,7 @@ public class BottomUI : MonoBehaviour {
 			if(PlayerState.Money>=500){
 				NationScript.RNation[nationSelect-1].PlantData.water = 1;
 				PlayerState.Money -=500;
-				//PlayerState.water_factory +=1;
+
 				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "수력발전기술을 판매하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
@@ -159,7 +159,7 @@ public class BottomUI : MonoBehaviour {
 			if(PlayerState.Money>=500){
 				NationScript.RNation[nationSelect-1].PlantData.fire = 1;
 				PlayerState.Money -=500;
-				//PlayerState.fire_factory +=1;
+
 				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "화력발전기술을 판매하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
@@ -169,7 +169,7 @@ public class BottomUI : MonoBehaviour {
 			if(PlayerState.Money>=500){
 				NationScript.RNation[nationSelect-1].PlantData.nuclear = 1;
 				PlayerState.Money -=500;
-				//PlayerState.nuclear_factory +=1;
+
 				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "원자력발전기술을 판매하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
@@ -179,7 +179,7 @@ public class BottomUI : MonoBehaviour {
 			if(PlayerState.Money>=500){
 				NationScript.RNation[nationSelect-1].PlantData.sun = 1;
 				PlayerState.Money -=500;
-				//PlayerState.sun_factory +=1;
+
 				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "태양광발전기술을 판매하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
@@ -189,7 +189,7 @@ public class BottomUI : MonoBehaviour {
 			if(PlayerState.Money>=500){
 				NationScript.RNation[nationSelect-1].PlantData.wind = 1;
 				PlayerState.Money -=500;
-				//PlayerState.wind_factory +=1;
+
 				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "풍력발전기술을 판매하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
@@ -199,7 +199,7 @@ public class BottomUI : MonoBehaviour {
 			if(PlayerState.Money>=500){
 				NationScript.RNation[nationSelect-1].PlantData.gravity = 1;
 				PlayerState.Money -=500;
-				//PlayerState.gravity_factory +=1;
+
 				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "중력발전기술을 판매하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
