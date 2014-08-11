@@ -31,7 +31,7 @@ public class BottomUI : MonoBehaviour {
 
 	void OnGUI(){
 		if (nationSelect>0) {
-			if(GUI.Button (new Rect (sw * 4 / 5 - 10, sh * 5 / 6, sw / 10, sh / 20), "발전기술판매")){
+			if(GUI.Button (new Rect (sw * 4 / 5 - 10, sh * 5 / 6, sw / 10, sh / 20), "발전소 건설")){
 				if(constructCheck)constructCheck=false;
 				else constructCheck = true;
 			}
@@ -47,75 +47,51 @@ public class BottomUI : MonoBehaviour {
 			scrollPosition = GUI.BeginScrollView (new Rect (sw * 7 / 10, sh * 2 / 5, sw*3 / 10, sh * 2 / 5), scrollPosition, new Rect (0, 0, sw / 5 - 20, sh / 2 + 10));
 			if (GUI.Button (new Rect (10, 10, sw / 6, sh / 15), "수력발전기술")) {
 				ActionButton = true;
-				ActionText ("수력발전기술을 판매");
-				if(NationScript.RNation[nationSelect-1].PlantData.water>0){
-					GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "이미 기술을 판매하였습니다.");
-					ActionButton = false;
-				}
-				else if(PlayerState.waterLevel==0)selectNumber = 8;
+				ActionText ("수력발전소를 건설");
+				if(PlayerState.waterLevel==0)selectNumber = 8;
 				else selectNumber = 2;
 			}
-			GUI.Label(new Rect(10 + sw / 6 +10, 10, sw/16, sh/20), "소유자 : "+NationScript.RNation[nationSelect-1].PlantData.water); 
+			GUI.Label(new Rect(10 + sw / 6 +10, 10, sw/16, sh/20), "소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.water); 
 
 			if (GUI.Button (new Rect (10, 10 * 2 + sh / 15, sw / 6, sh / 15), "화력발전기술")) {
 				ActionButton = true;
-				ActionText ("화력발전기술을 판매");
-				if(NationScript.RNation[nationSelect-1].PlantData.fire>0){
-					GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "이미 기술을 판매하였습니다.");
-					ActionButton = false;
-				}
-				else if(PlayerState.fireLevel==0)selectNumber = 8;
+				ActionText ("화력발전소를 건설");
+				if(PlayerState.fireLevel==0)selectNumber = 8;
 				else selectNumber = 3;
 			}
-			GUI.Label(new Rect(10 + sw/6 +10, 10 * 2 + sh / 15, sw / 16, sh / 20),"소유자 : "+NationScript.RNation[nationSelect-1].PlantData.fire);
+			GUI.Label(new Rect(10 + sw/6 +10, 10 * 2 + sh / 15, sw / 16, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.fire);
 
 			if (GUI.Button (new Rect (10, 10 * 3 + sh * 2 / 15, sw / 6, sh / 15), "원자력발전기술")) {
 				ActionButton = true;
-				ActionText ("원자력발전기술을 판매");
-				if(NationScript.RNation[nationSelect-1].PlantData.nuclear>0){
-					GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "이미 기술을 판매하였습니다.");
-					ActionButton = false;
-				}
-				else if(PlayerState.nuclearLevel==0)selectNumber = 8;
+				ActionText ("원자력발전소를 건설");
+				if(PlayerState.nuclearLevel==0)selectNumber = 8;
 				else selectNumber = 4;
 			}
-			GUI.Label(new Rect(10 + sw/6 +10, 10 * 3 + sh * 2 / 15, sw / 16, sh / 20),"소유자 : "+NationScript.RNation[nationSelect-1].PlantData.nuclear);
+			GUI.Label(new Rect(10 + sw/6 +10, 10 * 3 + sh * 2 / 15, sw / 16, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.nuclear);
 
 			if (GUI.Button (new Rect (10, 10 * 4 + sh * 3 / 15, sw / 6, sh / 15), "태양광발전기술")) {
 				ActionButton = true;
-				ActionText ("태양광발전기술을 판매");
-				if(NationScript.RNation[nationSelect-1].PlantData.sun>0){
-					GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "이미 기술을 판매하였습니다.");
-					ActionButton = false;
-				}
-				else if(PlayerState.sunLevel==0)selectNumber = 8;
+				ActionText ("태양광발전소를 건설");
+				if(PlayerState.sunLevel==0)selectNumber = 8;
 				else selectNumber = 5;
 			}
-			GUI.Label(new Rect(10 + sw/6 +10, 10 * 4 + sh * 3 / 15, sw / 16, sh / 20),"소유자 : "+NationScript.RNation[nationSelect-1].PlantData.sun);
+			GUI.Label(new Rect(10 + sw/6 +10, 10 * 4 + sh * 3 / 15, sw / 16, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.sun);
 
 			if (GUI.Button (new Rect (10, 10 * 5 + sh * 4 / 15, sw / 6, sh / 15), "풍력발전기술")) {
 				ActionButton = true;
-				ActionText ("풍력발전기술을 판매");
-				if(NationScript.RNation[nationSelect-1].PlantData.wind>0){
-					GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "이미 기술을 판매하였습니다.");
-					ActionButton = false;
-				}
-				else if(PlayerState.windLevel==0)selectNumber = 8;
+				ActionText ("풍력발전소를 건설");
+				if(PlayerState.windLevel==0)selectNumber = 8;
 				else selectNumber = 6;
 			}
-			GUI.Label(new Rect(10 + sw/6 +10, 10 * 5 + sh * 4 / 15, sw / 16, sh / 20),"소유자 : "+NationScript.RNation[nationSelect-1].PlantData.wind);
+			GUI.Label(new Rect(10 + sw/6 +10, 10 * 5 + sh * 4 / 15, sw / 16, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.wind);
 
 			if (GUI.Button (new Rect (10, 10 * 6 + sh * 5 / 15, sw / 6, sh / 15), "중력발전기술")) {
 				ActionButton = true;
-				ActionText ("중력발전기술을 판매");
-				if(NationScript.RNation[nationSelect-1].PlantData.gravity>0){
-					GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "이미 기술을 판매하였습니다.");
-					ActionButton = false;
-				}
-				else if(PlayerState.gravityLevel==0)selectNumber = 8;
+				ActionText ("중력발전소를 건설");
+				if(PlayerState.gravityLevel==0)selectNumber = 8;
 				else selectNumber = 7;
 			}
-			GUI.Label(new Rect(10 + sw/6 +10, 10 * 6 + sh * 5 / 15, sw / 16, sh / 20),"소유자 : "+NationScript.RNation[nationSelect-1].PlantData.gravity);
+			GUI.Label(new Rect(10 + sw/6 +10, 10 * 6 + sh * 5 / 15, sw / 16, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.gravity);
 
 			GUI.EndScrollView ();
 				}
@@ -127,7 +103,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			if(GUI.Button(new Rect(sw/2 +10, sh/2, sw / 15, sh/18), "취소"))
 				initialize();
-				}
+			}
 	}
 
 	void ActionText(string abc){
@@ -147,66 +123,78 @@ public class BottomUI : MonoBehaviour {
 
 		case 2:
 			if(PlayerState.Money>=500){
-				NationScript.RNation[nationSelect-1].PlantData.water = 1;
+				NationScript.RNation[nationSelect-1].PlantNumber.water ++;
+				NationScript.RNation[nationSelect-1].PlayerPlant.water ++;
+				PlayerState.waterNumber++;
 				PlayerState.Money -=500;
 
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "수력발전기술을 판매하였습니다.");
+				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "수력발전소를 건설하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
 			break;
 
 		case 3:
 			if(PlayerState.Money>=500){
-				NationScript.RNation[nationSelect-1].PlantData.fire = 1;
+				NationScript.RNation[nationSelect-1].PlantNumber.fire ++;
+				NationScript.RNation[nationSelect-1].PlayerPlant.fire ++;
+				PlayerState.fireNumber++;
 				PlayerState.Money -=500;
 
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "화력발전기술을 판매하였습니다.");
+				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "화력발전소를 건설하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
 			break;
 
 		case 4:
 			if(PlayerState.Money>=500){
-				NationScript.RNation[nationSelect-1].PlantData.nuclear = 1;
+				NationScript.RNation[nationSelect-1].PlantNumber.nuclear ++;
+				NationScript.RNation[nationSelect-1].PlayerPlant.nuclear ++;
+				PlayerState.nuclearNumber++;
 				PlayerState.Money -=500;
 
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "원자력발전기술을 판매하였습니다.");
+				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "원자력발전소를 건설하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
 			break;
 
 		case 5:
 			if(PlayerState.Money>=500){
-				NationScript.RNation[nationSelect-1].PlantData.sun = 1;
+				NationScript.RNation[nationSelect-1].PlantNumber.sun ++;
+				NationScript.RNation[nationSelect-1].PlayerPlant.sun ++;
+				PlayerState.sunNumber++;
 				PlayerState.Money -=500;
 
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "태양광발전기술을 판매하였습니다.");
+				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "태양광발전소를 건설하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
 			break;
 
 		case 6:
 			if(PlayerState.Money>=500){
-				NationScript.RNation[nationSelect-1].PlantData.wind = 1;
+				NationScript.RNation[nationSelect-1].PlantNumber.wind ++;
+				NationScript.RNation[nationSelect-1].PlayerPlant.wind ++;
+				PlayerState.windNumber++;
 				PlayerState.Money -=500;
 
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "풍력발전기술을 판매하였습니다.");
+				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "풍력발전소를 건설하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
 			break;
 
 		case 7:
 			if(PlayerState.Money>=500){
-				NationScript.RNation[nationSelect-1].PlantData.gravity = 1;
+				NationScript.RNation[nationSelect-1].PlantNumber.gravity ++;
+				NationScript.RNation[nationSelect-1].PlayerPlant.gravity ++;
+				PlayerState.gravityNumber++;
 				PlayerState.Money -=500;
 
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "중력발전기술을 판매하였습니다.");
+				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "중력발전소를 건설하였습니다.");
 			}
 			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
 			break;
 
 		case 8:
-			GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "발전 기술이 1이상이여만 판매가 가능합니다");
+			GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "발전 기술이 1이상이여만 건설 가능합니다");
 			break;
 		}
 	}

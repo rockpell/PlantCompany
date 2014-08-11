@@ -20,12 +20,12 @@ public class PlayerState : MonoBehaviour {
 	public static int windLevel=0;
 	public static int gravityLevel=0;
 
-	int waterNumber=0;
-	int fireNumber=0;
-	int nuclearNumber=0;
-	int sunNumber=0;
-	int windNumber=0;
-	int gravityNumber=0;
+	public static int waterNumber=0;
+	public static int fireNumber=0;
+	public static int nuclearNumber=0;
+	public static int sunNumber=0;
+	public static int windNumber=0;
+	public static int gravityNumber=0;
 	
 	float _timerForText;
 
@@ -41,41 +41,8 @@ public class PlayerState : MonoBehaviour {
 		{
 			_timerForText = 0;
 			Money += time_Money;
-			PlantExistence();
 			playerProfit();
 		}
-	}
-
-	void PlantExistence(){
-		int wNumber = 0;
-		int fNumber = 0;
-		int nNumber = 0;
-		int sNumber = 0;
-		int wiNumber = 0;
-		int gNumber = 0;
-
-		for (int i=0; i<NationScript.RNation.Length; i++) {
-			if(NationScript.RNation[i].PlantData.water==1) wNumber++;
-			if(NationScript.RNation[i].PlantData.fire==1) fNumber++;
-			if(NationScript.RNation[i].PlantData.sun==1) sNumber++;
-			if(NationScript.RNation[i].PlantData.nuclear==1) nNumber++;
-			if(NationScript.RNation[i].PlantData.wind==1) wiNumber++;
-			if(NationScript.RNation[i].PlantData.gravity==1) gNumber++;
-		}
-
-		waterNumber = wNumber;
-		fireNumber = fNumber;
-		sunNumber = sNumber;
-		nuclearNumber = nNumber;
-		windNumber = wiNumber;
-		gravityNumber = gNumber;
-
-		wNumber = 0;
-		fNumber = 0;
-		sNumber = 0;
-		nNumber = 0;
-		wiNumber = 0;
-		gNumber = 0;
 	}
 
 	public void playerProfit(){

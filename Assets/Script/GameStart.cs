@@ -17,8 +17,11 @@ public class GameStart : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		if(GUI.Button (new Rect(sw/2-30,sh/2-15,60,30),"Start"))
-			Application.LoadLevel("1_Game");
-
+		if (GUI.Button (new Rect (sw / 2 - 30, sh / 2 - 15, 60, 30), "Start")) {
+						Application.LoadLevel ("1_Game");
+				}
+		if (GUI.Button(new Rect(sw/2+60,sh/2-15,60,30),"Quit")){
+						Application.Quit();
+		}
 	}
 }

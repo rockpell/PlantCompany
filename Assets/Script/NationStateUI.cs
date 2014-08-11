@@ -16,23 +16,23 @@ public class NationStateUI : MonoBehaviour {
 		if(BottomUI.nationSelect>0){
 		switch(BottomUI.nationSelect){
 		case 1: 
-			Ntext = "첫";
+				Ntext = NationScript.RNation[0].Name;
 				break;
 		case 2:
-			Ntext = "두";
+				Ntext = NationScript.RNation[1].Name;
 				break;
 		case 3:
-			Ntext = "세";
+				Ntext = NationScript.RNation[2].Name;
 				break;
 		case 4:
-			Ntext = "네";
+				Ntext = NationScript.RNation[3].Name;
 				break;
 		case 5:
-			Ntext = "다섯";
+				Ntext = NationScript.RNation[4].Name;
 				break;
 		}
 
-		NationState.text = string.Format("{0}", Ntext)+" 번째 나라";
+		NationState.text = string.Format("{0}", Ntext);
 		}
 	}
 }
