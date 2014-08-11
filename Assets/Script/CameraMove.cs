@@ -62,7 +62,7 @@ public class CameraMove : MonoBehaviour {
 						}
 				}
 
-	if (MainCamera.position.y > 10) {
+	if (MainCamera.position.y > 20) {
 						if (Input.GetAxis ("Mouse ScrollWheel") > 0) { 
 								transform.Translate (0, -0.5f, 0, Space.World); 
 						}

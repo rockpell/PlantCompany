@@ -16,6 +16,9 @@ public class StateUI : MonoBehaviour {
 	bool sample3ch = false;
 	bool actionButton = false;
 
+	int characteristic = 0; // 특성 변수
+	string charText;
+
 	string actionText;
 
 	PlayerState abc = new PlayerState ();
@@ -39,8 +42,10 @@ public class StateUI : MonoBehaviour {
 		if (GUI.Button (new Rect (0, sh / 3, sw / 12, sh / 16), "국가별 정보")) {
 			if (sample2ch)
 				sample2ch = false;
-			if(sample3ch)
+			if(sample3ch){
 				sample3ch = false;
+				characteristic=0;
+			}
 			if (sample1ch)
 				sample1ch = false;
 			else
@@ -49,8 +54,10 @@ public class StateUI : MonoBehaviour {
 		if (GUI.Button (new Rect (0, sh / 3 + sh / 16, sw / 15, sh / 16), "기술")) {
 			if (sample1ch)
 					sample1ch = false;
-			if(sample3ch)
+			if(sample3ch){
 				sample3ch = false;
+				characteristic=0;
+			}
 			if (sample2ch)
 				sample2ch = false;
 			else
@@ -61,8 +68,10 @@ public class StateUI : MonoBehaviour {
 				sample1ch = false;
 			if(sample2ch)
 				sample2ch = false;
-			if (sample3ch)
+			if (sample3ch){
 				sample3ch = false;
+				characteristic=0;
+			}
 			else
 				sample3ch = true;
 		}
@@ -212,10 +221,44 @@ public class StateUI : MonoBehaviour {
 			}
 
 		if (sample3ch) {
-			GUI.Box (new Rect (sw/2 -sw/5, sh/2-sh*3/8, sw*2 / 5, sh/2+20), "기술특성");
-			if(GUI.Button(new Rect(sw/2 +sw/5 - 30 ,sh/2-sh*3/8,30,20),"X"))
+			GUI.Box (new Rect (sw/2 -sw/10, sh/2-sh*3/8, sw*1 / 5, sh/2), "기술특성");
+			if(GUI.Button(new Rect(sw/2 +sw/10 - 30 ,sh/2-sh*3/8,30,20),"X")){
 				sample3ch = false;
+				characteristic=0;
 			}
+			if(GUI.Button(new Rect(sw/2 -sw/10, sh/2-sh*3/8 + sh/16, sw/5, sh/16),"수력발전")){
+				characteristic=1;
+				charText="수력";
+			}
+			if(GUI.Button(new Rect(sw/2 -sw/10, sh/2-sh*3/8 + sh*2/16+5, sw/5, sh/16),"화력발전")){
+				characteristic=2;
+				charText="화력";
+			}
+			if(GUI.Button(new Rect(sw/2 -sw/10, sh/2-sh*3/8 + sh*3/16+5*2, sw/5, sh/16),"원자력발전")){
+				characteristic=3;
+				charText="원자력";
+			}
+			if(GUI.Button(new Rect(sw/2 -sw/10, sh/2-sh*3/8 + sh*4/16+5*3, sw/5, sh/16),"태양광발전")){
+				characteristic=4;
+				charText="태양광";
+			}
+			if(GUI.Button(new Rect(sw/2 -sw/10, sh/2-sh*3/8 + sh*5/16+5*4, sw/5, sh/16),"풍력발전")){
+				characteristic=5;
+				charText="풍력";
+			}
+			if(GUI.Button(new Rect(sw/2 -sw/10, sh/2-sh*3/8 + sh*6/16+5*5, sw/5, sh/16),"중력발전")){
+				characteristic=6;
+				charText="중력";
+			}
+
+			}
+		
+		if(sample3ch && characteristic>0){
+			GUI.Box(new Rect(sw/2 + sw/10, sh/2-sh*2/8, sw*1 / 5, sh/4), charText+"특성");
+			GUI.Button(new Rect(sw/2 + sw/10, sh/2-sh*2/8 + sh/30, sw*1/5, sh/16),"건설 비용 감소");
+			GUI.Button(new Rect(sw/2 + sw/10, sh/2-sh*2/8 + sh/30 + sh/16 +5, sw*1 / 5, sh/16),"생산량 증가");
+			GUI.Button(new Rect(sw/2 + sw/10, sh/2-sh*2/8 + sh/30 + sh*2/16 +10, sw*1 / 5, sh/16),"친환경성 증가");
+		}
 
 		if (actionButton) {
 			GUI.Box (new Rect (sw/2 - sw/10, sh/2 - sh/12, sw*2 / 9, sh/6), ""+actionText);
