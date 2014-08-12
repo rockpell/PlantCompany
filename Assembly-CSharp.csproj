@@ -64,6 +64,8 @@
      <Compile Include="Assets\Script\SettingUI.cs" />
      <Compile Include="Assets\Script\StateUI.cs" />
      <Compile Include="Assets\Script\Timer.cs" />
+     <Compile Include="Assets\Script\TouchMove.cs" />
+     <Compile Include="Assets\Script\test.cs" />
      <None Include="Assets\Skyboxes\_skybox info.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
