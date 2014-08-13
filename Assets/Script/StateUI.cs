@@ -39,7 +39,7 @@ public class StateUI : MonoBehaviour {
 	
 
 	void OnGUI(){
-		if (GUI.Button (new Rect (0, sh / 3, sw / 12, sh / 16), "국가별 정보")) {
+		if (GUI.Button (new Rect (0, sh / 3, sw / 10, sh / 16), "국가별 정보")) {
 			if (sample2ch)
 				sample2ch = false;
 			if(sample3ch){
@@ -51,7 +51,7 @@ public class StateUI : MonoBehaviour {
 			else
 				sample1ch = true;
 				}
-		if (GUI.Button (new Rect (0, sh / 3 + sh / 16, sw / 15, sh / 16), "기술")) {
+		if (GUI.Button (new Rect (0, sh / 3 + sh / 16, sw / 10, sh / 16), "기술")) {
 			if (sample1ch)
 					sample1ch = false;
 			if(sample3ch){
@@ -63,7 +63,7 @@ public class StateUI : MonoBehaviour {
 			else
 				sample2ch = true;
 				}
-		if(GUI.Button (new Rect(0,sh/3+sh/8,sw/15,sh/16),"기술 특성")){
+		if(GUI.Button (new Rect(0,sh/3+sh/8,sw / 10,sh/16),"기술 특성")){
 			if (sample1ch)
 				sample1ch = false;
 			if(sample2ch)
@@ -77,9 +77,9 @@ public class StateUI : MonoBehaviour {
 		}
 
 		if (sample1ch) {
-			GUI.Box (new Rect (sw/2 -sw/5, sh/2-sh*3/8, sw*2 / 5+20, sh/2+20), "국가별 정보");
-			if(GUI.Button(new Rect(sw/2 +sw/5 - 10 ,sh/2-sh*3/8,30,20),"X"))
-				sample1ch = false;
+			GUI.Box (new Rect (sw/2 -sw/5, sh/2-sh*3/8, sw*5 / 10, sh/2+20), "국가별 정보");
+			/*if(GUI.Button(new Rect(sw/2 + sw*5 / 20 +10,sh/2-sh*3/8,30,20),"X"))
+				sample1ch = false;*/
 			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh*3/8 + 40, 40, 20), "국가명");
 			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh*3/8 + 80, 40, 20), "성향");
 			GUI.Label(new Rect (sw/2 -sw/5 + 20, sh/2-sh*3/8 + 120, 40, 20), "재산");
@@ -178,41 +178,41 @@ public class StateUI : MonoBehaviour {
 
 		if (sample2ch) {
 			GUI.Box (new Rect (sw/2 -sw/5, sh/2-sh*3/8, sw*2 / 5, sh/2+20), "발전기술");
-			if(GUI.Button(new Rect(sw/2 +sw/5 - 30 ,sh/2-sh*3/8,30,20),"X"))
-				sample2ch = false;
-			scrollPosition = GUI.BeginScrollView (new Rect (sw/2 -sw/5, sh/2-sh*3/8+20, sw*2 / 5, sh/2), scrollPosition, new Rect (0, 0, sw*2 / 5-20, sh*2/3));
+			/*if(GUI.Button(new Rect(sw/2 +sw/5 - 30 ,sh/2-sh*3/8,30,20),"X"))
+				sample2ch = false;*/
+			scrollPosition = GUI.BeginScrollView (new Rect (sw/2 -sw/5, sh/2-sh*3/8+20, sw*2 / 5, sh/2), scrollPosition, new Rect (0, 0, 0, 0));
 			GUI.Label(new Rect(10, sh/16, sw/5, sh/16),"수력발전 " + LevelText(PlayerState.waterLevel, 1));
-			if(GUI.Button(new Rect(sw/2 -sw/5, sh/16, sw/16, sh/16),"투자")){
+			if(GUI.Button(new Rect(sw/2 -sw/5, sh/16, sw/14, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 1;
 				actionText = "수력발전에 투자하시겠습니까?";
 			}
 			GUI.Label(new Rect(10, sh*2/16, sw/5, sh/16),"화력발전 " + LevelText(PlayerState.fireLevel, 2));
-			if(GUI.Button(new Rect(sw/2 -sw/5, sh*2/16, sw/16, sh/16),"투자")){
+			if(GUI.Button(new Rect(sw/2 -sw/5, sh*2/16, sw/14, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 2;
 				actionText = "화력발전에 투자하시겠습니까?";
 			}
 			GUI.Label(new Rect(10, sh*3/16, sw/5, sh/16),"원자력발전 " + LevelText(PlayerState.nuclearLevel, 3));
-			if(GUI.Button(new Rect(sw/2 -sw/5, sh*3/16, sw/16, sh/16),"투자")){
+			if(GUI.Button(new Rect(sw/2 -sw/5, sh*3/16, sw/14, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 3;
 				actionText = "원자력발전에 투자하시겠습니까?";
 			}
 			GUI.Label(new Rect(10, sh*4/16, sw/5, sh/16),"태양광발전 " + LevelText(PlayerState.sunLevel, 4));
-			if(GUI.Button(new Rect(sw/2 -sw/5, sh*4/16, sw/16, sh/16),"투자")){
+			if(GUI.Button(new Rect(sw/2 -sw/5, sh*4/16, sw/14, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 4;
 				actionText = "태양광발전에 투자하시겠습니까?";
 			}
 			GUI.Label(new Rect(10, sh*5/16, sw/5, sh/16),"풍력발전 " + LevelText(PlayerState.windLevel, 5));
-			if(GUI.Button(new Rect(sw/2 -sw/5, sh*5/16, sw/16, sh/16),"투자")){
+			if(GUI.Button(new Rect(sw/2 -sw/5, sh*5/16, sw/14, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 5;
 				actionText = "풍력발전에 투자하시겠습니까?";
 			}
 			GUI.Label(new Rect(10, sh*6/16, sw/5, sh/16),"중력발전 " + LevelText(PlayerState.gravityLevel, 6));
-			if(GUI.Button(new Rect(sw/2 -sw/5, sh*6/16, sw/16, sh/16),"투자")){
+			if(GUI.Button(new Rect(sw/2 -sw/5, sh*6/16, sw/14, sh/16),"투자")){
 				actionButton = true;
 				selectNumber = 6;
 				actionText = "중력발전에 투자하시겠습니까?";
@@ -222,10 +222,10 @@ public class StateUI : MonoBehaviour {
 
 		if (sample3ch) {
 			GUI.Box (new Rect (sw/2 -sw/10, sh/2-sh*3/8, sw*1 / 5, sh/2), "기술특성");
-			if(GUI.Button(new Rect(sw/2 +sw/10 - 30 ,sh/2-sh*3/8,30,20),"X")){
+			/*if(GUI.Button(new Rect(sw/2 +sw/10 - 30 ,sh/2-sh*3/8,30,20),"X")){
 				sample3ch = false;
 				characteristic=0;
-			}
+			}*/
 			if(GUI.Button(new Rect(sw/2 -sw/10, sh/2-sh*3/8 + sh/16, sw/5, sh/16),"수력발전")){
 				characteristic=1;
 				charText="수력";

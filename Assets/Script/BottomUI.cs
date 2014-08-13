@@ -43,57 +43,56 @@ public class BottomUI : MonoBehaviour {
 			}
 		}
 		if (constructCheck) {
-			GUI.Box (new Rect (sw * 7 / 10, sh * 2 / 5, sw*3 / 10 , sh * 2 / 5), "");
-			scrollPosition = GUI.BeginScrollView (new Rect (sw * 7 / 10, sh * 2 / 5, sw*3 / 10, sh * 2 / 5), scrollPosition, new Rect (0, 0, sw / 5 - 20, sh / 2 + 10));
-			if (GUI.Button (new Rect (10, 10, sw / 6, sh / 15), "수력발전소")) {
+			GUI.Box (new Rect (sw * 7 / 10, sh * 2 / 5 - sh * 2 / 15, sw*3 / 10 , sh * 2 / 5 + sh * 2 / 15 ), "");
+
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10,sh * 2 / 5 +  10 - sh * 2 / 15, sw / 6, sh / 15), "수력발전소")) {
 				ActionButton = true;
 				ActionText ("수력발전소를 건설");
 				if(PlayerState.waterLevel==0)selectNumber = 8;
 				else selectNumber = 2;
 			}
-			GUI.Label(new Rect(10 + sw / 6 +10, 10, sw/16, sh/20), "소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.water); 
+			GUI.Label(new Rect(sw * 7 / 10+ 10 + sw / 6 +10, sh * 2 / 5+ 10 - sh * 2 / 15, sw/14, sh/20), "소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.water); 
 
-			if (GUI.Button (new Rect (10, 10 * 2 + sh / 15, sw / 6, sh / 15), "화력발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5 + 10 * 2 - sh / 15, sw / 6, sh / 15), "화력발전소")) {
 				ActionButton = true;
 				ActionText ("화력발전소를 건설");
 				if(PlayerState.fireLevel==0)selectNumber = 8;
 				else selectNumber = 3;
 			}
-			GUI.Label(new Rect(10 + sw/6 +10, 10 * 2 + sh / 15, sw / 16, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.fire);
+			GUI.Label(new Rect(sw * 7 / 10 + 10 + sw/6 +10, sh * 2 / 5 + 10 * 2 - sh / 15, sw / 14, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.fire);
 
-			if (GUI.Button (new Rect (10, 10 * 3 + sh * 2 / 15, sw / 6, sh / 15), "원자력발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10,sh * 2 / 5 + 10 * 3 + sh * 0 / 15, sw / 6, sh / 15), "원자력발전소")) {
 				ActionButton = true;
 				ActionText ("원자력발전소를 건설");
 				if(PlayerState.nuclearLevel==0)selectNumber = 8;
 				else selectNumber = 4;
 			}
-			GUI.Label(new Rect(10 + sw/6 +10, 10 * 3 + sh * 2 / 15, sw / 16, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.nuclear);
+			GUI.Label(new Rect(sw * 7 / 10 + 10 + sw/6 +10, sh * 2 / 5 + 10 * 3 + sh * 0 / 15, sw / 14, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.nuclear);
 
-			if (GUI.Button (new Rect (10, 10 * 4 + sh * 3 / 15, sw / 6, sh / 15), "태양광발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5+ 10 * 4 + sh * 1 / 15, sw / 6, sh / 15), "태양광발전소")) {
 				ActionButton = true;
 				ActionText ("태양광발전소를 건설");
 				if(PlayerState.sunLevel==0)selectNumber = 8;
 				else selectNumber = 5;
 			}
-			GUI.Label(new Rect(10 + sw/6 +10, 10 * 4 + sh * 3 / 15, sw / 16, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.sun);
+			GUI.Label(new Rect(sw * 7 / 10 + 10 + sw/6 +10, sh * 2 / 5 + 10 * 4 + sh * 1 / 15, sw / 14, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.sun);
 
-			if (GUI.Button (new Rect (10, 10 * 5 + sh * 4 / 15, sw / 6, sh / 15), "풍력발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5 + 10 * 5 + sh * 2 / 15, sw / 6, sh / 15), "풍력발전소")) {
 				ActionButton = true;
 				ActionText ("풍력발전소를 건설");
 				if(PlayerState.windLevel==0)selectNumber = 8;
 				else selectNumber = 6;
 			}
-			GUI.Label(new Rect(10 + sw/6 +10, 10 * 5 + sh * 4 / 15, sw / 16, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.wind);
+			GUI.Label(new Rect(sw * 7 / 10 + 10 + sw/6 +10,sh * 2 / 5 + 10 * 5 + sh * 2 / 15, sw / 14, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.wind);
 
-			if (GUI.Button (new Rect (10, 10 * 6 + sh * 5 / 15, sw / 6, sh / 15), "중력발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5 + 10 * 6 + sh * 3 / 15, sw / 6, sh / 15), "중력발전소")) {
 				ActionButton = true;
 				ActionText ("중력발전소를 건설");
 				if(PlayerState.gravityLevel==0)selectNumber = 8;
 				else selectNumber = 7;
 			}
-			GUI.Label(new Rect(10 + sw/6 +10, 10 * 6 + sh * 5 / 15, sw / 16, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.gravity);
+			GUI.Label(new Rect(sw * 7 / 10 + 10 + sw/6 +10, sh * 2 / 5 + 10 * 6 + sh * 3 / 15, sw / 14, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.gravity);
 
-			GUI.EndScrollView ();
 				}
 		if (ActionButton) {
 			GUI.Box (new Rect (sw/2 - sw/10, sh/2 - sh/12, sw*2 / 9, sh/6), ""+actionText);

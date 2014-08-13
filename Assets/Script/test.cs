@@ -3,8 +3,10 @@ using System.Collections;
 
 public class test : MonoBehaviour
 {
-		public Transform MainCamera;
-		float preX = 0, preY = 0;
+	public Transform MainCamera;
+	float preX,preY;
+	float preDistance1, nowDistance1;
+	float preDistance, nowDistance;
 				
 		void Update ()
 		{
@@ -26,35 +28,45 @@ public class test : MonoBehaviour
 									
 						if (touch.phase == TouchPhase.Began) {
 										
-								Debug.Log ("시작점 : (" + i + ") : x = " + pos.x + ", y = " + pos.y);
+								//Debug.Log ("시작점 : (" + i + ") : x = " + pos.x + ", y = " + pos.y);
 										
 						} else if (touch.phase == TouchPhase.Ended) {
 									
-								Debug.Log ("끝점 : (" + i + ") : x = " + pos.x + ", y = " + pos.y);
+								//Debug.Log ("끝점 : (" + i + ") : x = " + pos.x + ", y = " + pos.y);
 									
 						} else if (touch.phase == TouchPhase.Moved) {
 									
-								Debug.Log ("이동중 : (" + i + ") : x = " + pos.x + ", y = " + pos.y);
-								
-								
-				if(MainCamera.position.x>15 && pos.x-preX>0){
-					transform.Translate(-0.5f,0,0,Space.World); // 왼쪽
-				}
-				if(MainCamera.position.x<70 && pos.x-preX<0){
-					transform.Translate(0.5f,0,0,Space.World); // 오른쪽
-				}
-				if(MainCamera.position.z>-70 && pos.y-preY>0){ // 아래쪽
-					transform.Translate(0,0,-0.5f,Space.World);
-				}
-				if(MainCamera.position.z<-13 && pos.y-preY<0){ // 위쪽
-					transform.Translate(0,0,0.5f,Space.World);
-				}
-								preX = pos.x;
-								preY = pos.y;
+								//Debug.Log ("이동중 : (" + i + ") : x = " + pos.x + ", y = " + pos.y);
 						}
-							
 				}
-				
+		if (cnt == 1) {
+			if(MainCamera.position.x>15 && Input.GetTouch(0).position.x-preX>0){// 왼쪽
+				transform.Translate(-0.5f,0,0,Space.World); 
+			}
+			if(MainCamera.position.x<70 && Input.GetTouch(0).position.x-preX<0){// 오른쪽
+				transform.Translate(0.5f,0,0,Space.World); 
+			}
+			if(MainCamera.position.z>-70 && Input.GetTouch(0).position.y-preY>0){ // 아래쪽
+				transform.Translate(0,0,-0.5f,Space.World);
+			}
+			if(MainCamera.position.z<-13 && Input.GetTouch(0).position.y-preY<0){ // 위쪽
+				transform.Translate(0,0,0.5f,Space.World);
+			}
+			preX = Input.GetTouch(0).position.x;
+			preY = Input.GetTouch(0).position.y;
+				}
+
+		if (cnt == 2) {
+
+			nowDistance=Vector2.Distance(Input.GetTouch(0).position,Input.GetTouch(1).position);
+			if(nowDistance - preDistance > 0){ // 확대
+				transform.Translate (0, -0.5f, 0, Space.World);
+			}
+			if(nowDistance - preDistance < 0){ // 축소
+				transform.Translate (0, 0.5f, 0, Space.World); 
+			}
+			preDistance=Vector2.Distance(Input.GetTouch(0).position,Input.GetTouch(1).position);
+				}
 		}
 			
 }

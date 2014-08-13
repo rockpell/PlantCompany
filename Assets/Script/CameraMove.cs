@@ -57,13 +57,13 @@ public class CameraMove : MonoBehaviour {
 		}
 	
 	if (MainCamera.position.y < 50) {
-						if (Input.GetAxis ("Mouse ScrollWheel") < 0) {
+						if (Input.GetAxis ("Mouse ScrollWheel") < 0) { // 축소
 								transform.Translate (0, 0.5f, 0, Space.World); 
 						}
 				}
 
 	if (MainCamera.position.y > 20) {
-						if (Input.GetAxis ("Mouse ScrollWheel") > 0) { 
+						if (Input.GetAxis ("Mouse ScrollWheel") > 0) { // 확대
 								transform.Translate (0, -0.5f, 0, Space.World); 
 						}
 				}
