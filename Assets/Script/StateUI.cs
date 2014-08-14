@@ -31,8 +31,13 @@ public class StateUI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		State.text = "현재 자금 보유량 : " + string.Format("{0}",PlayerState.Money);
-		if (Time.timeScale == 0)
+		if (Time.timeScale == 0) {
 			pause = true;
+			sample1ch = false;
+			sample2ch = false;
+			sample3ch = false;
+			actionButton = false;
+		}
 		else if (Time.timeScale == 1)
 			pause = false;
 	}

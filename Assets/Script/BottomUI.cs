@@ -22,8 +22,11 @@ public class BottomUI : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Time.timeScale == 0)
-						pause = true;
+		if (Time.timeScale == 0) {
+			pause = true;
+			ActionButton = false;
+			constructCheck = false;
+			}
 		else if (Time.timeScale == 1)
 						pause = false;
 	}
