@@ -16,7 +16,10 @@ public class SettingUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (SettingOn) 
+			Time.timeScale = 0;
+		else
+			Time.timeScale = 1;
 	}
 
 	void OnMouseUp(){
@@ -27,10 +30,10 @@ public class SettingUI : MonoBehaviour {
 	void OnGUI(){
 
 		if(SettingOn){
-			GUI.Box (new Rect(sw*3/8 ,sh/2-100 ,sw/4 ,90), "Menu");
-			if(GUI.Button(new Rect(sw*5/8 -30 ,sh/2-100,30,20),"X"))
+			GUI.Box (new Rect(sw/2 - sw/8 ,sh/2-sh/6 ,sw/4 ,sh/6), "게임 일시정지");
+			if(GUI.Button(new Rect(sw/2-sw/12 ,sh*6/16,sw/6,sh/20),"게임으로 돌아가기"))
 				SettingOn=false;
-			if(GUI.Button (new Rect(sw/2-sw*3/32,sh/2-60,sw*3/16,30),"게임종료"))
+			if(GUI.Button (new Rect(sw/2-sw/12,sh*7/16,sw/6,sh/20),"게임종료"))
 				Application.Quit ();
 		}
 	}

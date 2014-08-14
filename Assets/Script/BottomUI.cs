@@ -8,6 +8,7 @@ public class BottomUI : MonoBehaviour {
 	public Vector2 scrollPosition = Vector2.zero;
 
 	bool ActionButton = false; // 확인창 활성화
+	bool pause = false; // 게임 일시정지 변수
 
 	int sw = Screen.width;
 	int sh = Screen.height;
@@ -17,11 +18,14 @@ public class BottomUI : MonoBehaviour {
 	string actionText;
 	
 	void Start () {
-	
+
 	}
 
 	void Update () {
-	
+		if (Time.timeScale == 0)
+						pause = true;
+		else if (Time.timeScale == 1)
+						pause = false;
 	}
 
 	void initialize(){  // 버튼 선택, 건설 및 정보 선택 초기화
@@ -31,11 +35,11 @@ public class BottomUI : MonoBehaviour {
 
 	void OnGUI(){
 		if (nationSelect>0) {
-			if(GUI.Button (new Rect (sw * 4 / 5 - 10, sh * 5 / 6, sw / 10, sh / 20), "발전소 건설")){
+			if(GUI.Button (new Rect (sw * 4 / 5 - 10, sh * 5 / 6, sw / 10, sh / 20), "발전소 건설") && !pause){
 				if(constructCheck)constructCheck=false;
 				else constructCheck = true;
 			}
-			if(GUI.Button (new Rect (sw * 4 / 5 + sw / 10 - 5, sh * 5 / 6, sw / 10, sh / 20), "정보수집")){
+			if(GUI.Button (new Rect (sw * 4 / 5 + sw / 10 - 5, sh * 5 / 6, sw / 10, sh / 20), "정보수집") && !pause){
 				ActionButton = true;
 				constructCheck=false;
 				selectNumber = 1;
@@ -45,7 +49,7 @@ public class BottomUI : MonoBehaviour {
 		if (constructCheck) {
 			GUI.Box (new Rect (sw * 7 / 10, sh * 2 / 5 - sh * 2 / 15, sw*3 / 10 , sh * 2 / 5 + sh * 2 / 15 ), "");
 
-			if (GUI.Button (new Rect (sw * 7 / 10 + 10,sh * 2 / 5 +  10 - sh * 2 / 15, sw / 6, sh / 15), "수력발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10,sh * 2 / 5 +  10 - sh * 2 / 15, sw / 6, sh / 15), "수력발전소") && !pause) {
 				ActionButton = true;
 				ActionText ("수력발전소를 건설");
 				if(PlayerState.waterLevel==0)selectNumber = 8;
@@ -53,7 +57,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			GUI.Label(new Rect(sw * 7 / 10+ 10 + sw / 6 +10, sh * 2 / 5+ 10 - sh * 2 / 15, sw/14, sh/20), "소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.water); 
 
-			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5 + 10 * 2 - sh / 15, sw / 6, sh / 15), "화력발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5 + 10 * 2 - sh / 15, sw / 6, sh / 15), "화력발전소") && !pause) {
 				ActionButton = true;
 				ActionText ("화력발전소를 건설");
 				if(PlayerState.fireLevel==0)selectNumber = 8;
@@ -61,7 +65,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			GUI.Label(new Rect(sw * 7 / 10 + 10 + sw/6 +10, sh * 2 / 5 + 10 * 2 - sh / 15, sw / 14, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.fire);
 
-			if (GUI.Button (new Rect (sw * 7 / 10 + 10,sh * 2 / 5 + 10 * 3 + sh * 0 / 15, sw / 6, sh / 15), "원자력발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10,sh * 2 / 5 + 10 * 3 + sh * 0 / 15, sw / 6, sh / 15), "원자력발전소") && !pause) {
 				ActionButton = true;
 				ActionText ("원자력발전소를 건설");
 				if(PlayerState.nuclearLevel==0)selectNumber = 8;
@@ -69,7 +73,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			GUI.Label(new Rect(sw * 7 / 10 + 10 + sw/6 +10, sh * 2 / 5 + 10 * 3 + sh * 0 / 15, sw / 14, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.nuclear);
 
-			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5+ 10 * 4 + sh * 1 / 15, sw / 6, sh / 15), "태양광발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5+ 10 * 4 + sh * 1 / 15, sw / 6, sh / 15), "태양광발전소") && !pause) {
 				ActionButton = true;
 				ActionText ("태양광발전소를 건설");
 				if(PlayerState.sunLevel==0)selectNumber = 8;
@@ -77,7 +81,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			GUI.Label(new Rect(sw * 7 / 10 + 10 + sw/6 +10, sh * 2 / 5 + 10 * 4 + sh * 1 / 15, sw / 14, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.sun);
 
-			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5 + 10 * 5 + sh * 2 / 15, sw / 6, sh / 15), "풍력발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5 + 10 * 5 + sh * 2 / 15, sw / 6, sh / 15), "풍력발전소") && !pause) {
 				ActionButton = true;
 				ActionText ("풍력발전소를 건설");
 				if(PlayerState.windLevel==0)selectNumber = 8;
@@ -85,7 +89,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			GUI.Label(new Rect(sw * 7 / 10 + 10 + sw/6 +10,sh * 2 / 5 + 10 * 5 + sh * 2 / 15, sw / 14, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.wind);
 
-			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5 + 10 * 6 + sh * 3 / 15, sw / 6, sh / 15), "중력발전소")) {
+			if (GUI.Button (new Rect (sw * 7 / 10 + 10, sh * 2 / 5 + 10 * 6 + sh * 3 / 15, sw / 6, sh / 15), "중력발전소") && !pause) {
 				ActionButton = true;
 				ActionText ("중력발전소를 건설");
 				if(PlayerState.gravityLevel==0)selectNumber = 8;
@@ -96,11 +100,11 @@ public class BottomUI : MonoBehaviour {
 				}
 		if (ActionButton) {
 			GUI.Box (new Rect (sw/2 - sw/10, sh/2 - sh/12, sw*2 / 9, sh/6), ""+actionText);
-			if(GUI.Button(new Rect(sw/2 - sw/15, sh/2, sw / 15, sh/18), "확인")){
+			if(GUI.Button(new Rect(sw/2 - sw/15, sh/2, sw / 15, sh/18), "확인") && !pause){
 				SelectMethod(selectNumber);
 				initialize();
 			}
-			if(GUI.Button(new Rect(sw/2 +10, sh/2, sw / 15, sh/18), "취소"))
+			if(GUI.Button(new Rect(sw/2 +10, sh/2, sw / 15, sh/18), "취소") && !pause)
 				initialize();
 			}
 	}
