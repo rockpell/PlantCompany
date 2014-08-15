@@ -3,7 +3,7 @@ using System.Collections;
 
 public class NewsGUI : MonoBehaviour {
 	
-	public float ScoreDelay = 2.0f;
+	public float timeDelay = 2.0f;
 	// Use this for initialization
 	void Start () {
 		StartCoroutine("DisplayScore"); 
@@ -17,7 +17,7 @@ public class NewsGUI : MonoBehaviour {
 	}
 	IEnumerator DisplayScore()
 	{
-		yield return new WaitForSeconds(ScoreDelay);
+		yield return new WaitForSeconds(timeDelay);
 		
 		for(float a = 1; a >= 0; a -= 0.05f)
 		{

@@ -19,6 +19,6 @@ public class NewsScript : MonoBehaviour {
 
 	void TextMessage(string TM){
 		TopNews.guiText.text = TM;
-		Instantiate (TopNews, new Vector3 ((sw*4/10)*0.001F, 0.98F, 1), Quaternion.identity);
+		Instantiate (TopNews, new Vector3 ((sw*4/10)*0.001F, 0.98F, 2), Quaternion.identity);
 	}
 }
