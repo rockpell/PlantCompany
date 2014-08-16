@@ -18,7 +18,7 @@ public class AreaGeneration : MonoBehaviour {
 	public Transform Nation6;
 
 
-	int [,] mapArr = new int[50, 50];
+	int [,] mapArr = new int[30, 40];
 	ArrayList cpx = new ArrayList();
 	ArrayList cpy = new ArrayList();
 	
@@ -42,8 +42,8 @@ public class AreaGeneration : MonoBehaviour {
 
 
 				while (nations<5/*cpsel*/) {
-						x = Random.Range (0, 50);
-						y = Random.Range (0, 50);
+						x = Random.Range (0, 30);
+						y = Random.Range (0, 40);
 
 						if (mapArr [x, y] == 1 || mapArr [x, y] == 2 || mapArr [x,y] == 3) {
 
@@ -98,8 +98,8 @@ public class AreaGeneration : MonoBehaviour {
 				int q = -1;
 				bool visit = true; // 방문 표시(true = 처음 & false = 처음 아님)
 
-				for (x=0; x<50; x++) { // 세로 축 탐색
-						for (y=0; y<50; y++) { // 가로 축 탐색
+				for (x=0; x<30; x++) { // 세로 축 탐색
+						for (y=0; y<40; y++) { // 가로 축 탐색
 								if (mapArr [x, y] == 1 || mapArr [x, y] == 2 || mapArr [x, y] == 3) mapArr [x, y] = rangecul (x, y);
 								/* mapArr 내부의 Value 해당 국가 소속값으로 바꿈. 
 				 * Capital1 소속이면 1
@@ -107,12 +107,12 @@ public class AreaGeneration : MonoBehaviour {
 						}
 				}
 
-				for (x=1; x<49; x++) { 
+				for (x=1; x<29; x++) { 
 						/* 국경지역 Value 변경
 			 * Capital1 국경은 6
 			 * Capital2 국경은 7... */
 
-						for (y=1; y<49; y++) {
+						for (y=1; y<39; y++) {
 
 								//위로 찾기
 								if (mapArr [x, y] != 0 && visit == true) {
@@ -151,8 +151,8 @@ public class AreaGeneration : MonoBehaviour {
 
 
 
-				for (x=0; x<50; x++) {
-						for (y=0; y<50; y++) {
+				for (x=0; x<30; x++) {
+						for (y=0; y<40; y++) {
 								if (mapArr [x, y] == (int)cpx.Count + 1) Instantiate (Nation1, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
 								if (mapArr [x, y] == (int)cpx.Count + 2) Instantiate (Nation2, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
 								if (mapArr [x, y] == (int)cpx.Count + 3) Instantiate (Nation3, new Vector3 (y * 1.73F + q * 0.4325F, 0.1F, x * 1.52F * -1), Quaternion.identity);
