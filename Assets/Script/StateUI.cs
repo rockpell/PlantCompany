@@ -270,13 +270,13 @@ public class StateUI : MonoBehaviour {
 			GUI.Box(new Rect(0,0, sw*1 / 5, sh/4), charText+"특성");
 
 			if(GUI.Button(new Rect(0, sh/30, sw*1/5, sh/16),"건설 비용 감소") && !pause){
-
+				PlayerState.PlantChar(characteristic,1);
 			}
 			if(GUI.Button(new Rect(0, sh/30 + sh/16 +5, sw*1 / 5, sh/16),"생산량 증가") && !pause){
-
+				PlayerState.PlantChar(characteristic,2);
 			}
 			if(GUI.Button(new Rect(0, sh/30 + sh*2/16 +10, sw*1 / 5, sh/16),"친환경성 증가") && !pause){
-
+				PlayerState.PlantChar(characteristic,3);
 			}
 
 			GUI.EndGroup();

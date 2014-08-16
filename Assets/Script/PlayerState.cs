@@ -26,7 +26,13 @@ public class PlayerState : MonoBehaviour {
 	public static int sunNumber=0;
 	public static int windNumber=0;
 	public static int gravityNumber=0;
-	
+
+	public struct Characteristic{
+		public int constructExpenses;
+		public int output;
+		public int environment;
+	}
+
 	float _timerForText;
 
 	// Use this for initialization
@@ -47,5 +53,43 @@ public class PlayerState : MonoBehaviour {
 
 	public void playerProfit(){
 		time_Money = 1 + waterpowerMoney*waterLevel*waterNumber + thermalpowerMoney*fireLevel*fireNumber + solarpowerMoney*sunLevel*sunNumber + nuclearpowerMoney*nuclearLevel*nuclearNumber + windpowerMoney*windLevel*windNumber + gravitypowerMoney*gravityLevel*gravityNumber;
+	}
+
+	public static void PlantChar(int plant, int chart){
+
+		Characteristic [] PlantCharter = new Characteristic[6];
+
+		switch(plant){
+		case 1:
+			if(chart==1)PlantCharter[plant-1].constructExpenses++;
+			else if(chart==2)PlantCharter[plant-1].output++;
+			else if(chart==3)PlantCharter[plant-1].environment++;
+			break;
+		case 2:
+			if(chart==1)PlantCharter[plant-1].constructExpenses++;
+			else if(chart==2)PlantCharter[plant-1].output++;
+			else if(chart==3)PlantCharter[plant-1].environment++;
+			break;
+		case 3:
+			if(chart==1)PlantCharter[plant-1].constructExpenses++;
+			else if(chart==2)PlantCharter[plant-1].output++;
+			else if(chart==3)PlantCharter[plant-1].environment++;
+			break;
+		case 4:
+			if(chart==1)PlantCharter[plant-1].constructExpenses++;
+			else if(chart==2)PlantCharter[plant-1].output++;
+			else if(chart==3)PlantCharter[plant-1].environment++;
+			break;
+		case 5:
+			if(chart==1)PlantCharter[plant-1].constructExpenses++;
+			else if(chart==2)PlantCharter[plant-1].output++;
+			else if(chart==3)PlantCharter[plant-1].environment++;
+			break;
+		case 6:
+			if(chart==1)PlantCharter[plant-1].constructExpenses++;
+			else if(chart==2)PlantCharter[plant-1].output++;
+			else if(chart==3)PlantCharter[plant-1].environment++;
+			break;
+		}
 	}
 }
