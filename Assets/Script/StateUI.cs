@@ -18,6 +18,7 @@ public class StateUI : MonoBehaviour {
 	bool pause = false; // 게임 일시정지 변수
 
 	int characteristic = 0; // 특성 변수
+	int characterSelect = 0; // 특성 선택
 	string charText;
 
 	string actionText;
@@ -45,6 +46,8 @@ public class StateUI : MonoBehaviour {
 	void initialize(){
 		actionButton = false;
 		selectNumber = 0;
+		characteristic = 0;
+		characterSelect = 0;
 	}
 	
 
@@ -270,13 +273,19 @@ public class StateUI : MonoBehaviour {
 			GUI.Box(new Rect(0,0, sw*1 / 5, sh/4), charText+"특성");
 
 			if(GUI.Button(new Rect(0, sh/30, sw*1/5, sh/16),"건설 비용 감소") && !pause){
-				PlayerState.PlantChar(characteristic,1);
+				characterSelect = 1;
+				actionButton = true;
+				actionText = "건설 비용 감소 특성 투자";
 			}
 			if(GUI.Button(new Rect(0, sh/30 + sh/16 +5, sw*1 / 5, sh/16),"생산량 증가") && !pause){
-				PlayerState.PlantChar(characteristic,2);
+				characterSelect = 2;
+				actionButton = true;
+				actionText = "생산량 증가 특성 투자";
 			}
 			if(GUI.Button(new Rect(0, sh/30 + sh*2/16 +10, sw*1 / 5, sh/16),"친환경성 증가") && !pause){
-				PlayerState.PlantChar(characteristic,3);
+				characterSelect = 3;
+				actionButton = true;
+				actionText = "친환경성 증가 특성 투자";
 			}
 
 			GUI.EndGroup();
@@ -285,7 +294,8 @@ public class StateUI : MonoBehaviour {
 		if (actionButton) {
 			GUI.Box (new Rect (sw/2 - sw*9/64, sh/2 - sh/12, sw*18 / 64, sh/6), ""+actionText);
 			if(GUI.Button(new Rect(sw/2 - sw/15, sh/2, sw / 15, sh/18), "확인") && !pause){
-				SelectMethod(selectNumber);
+				if(selectNumber!=0)SelectMethod(selectNumber);
+				if(characteristic!=0)PlayerState.PlantChar(characteristic,characterSelect);
 				initialize();
 
 			}

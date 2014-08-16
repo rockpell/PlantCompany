@@ -45,7 +45,7 @@ public class CameraMove : MonoBehaviour {
 		}*/
 		}
 
-		if(MainCamera.position.z>-70){ // 카메로 아래로 이동
+		if(MainCamera.position.z>-43){ // 카메로 아래로 이동
 		if(Input.GetKey(KeyCode.DownArrow)){
 			transform.Translate(0,0,-0.5f,Space.World);
 		}

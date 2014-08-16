@@ -56,12 +56,13 @@ public class PlayerState : MonoBehaviour {
 	}
 
 	public static void PlantChar(int plant, int chart){
-
 		Characteristic [] PlantCharter = new Characteristic[6];
 
 		switch(plant){
 		case 1:
-			if(chart==1)PlantCharter[plant-1].constructExpenses++;
+			if(chart==1){
+				PlantCharter[plant-1].constructExpenses++;
+			}
 			else if(chart==2)PlantCharter[plant-1].output++;
 			else if(chart==3)PlantCharter[plant-1].environment++;
 			break;
