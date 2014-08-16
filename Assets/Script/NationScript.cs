@@ -39,6 +39,7 @@ public class NationScript : MonoBehaviour {
 		RNation[2].Name = "Third";
 		RNation[3].Name = "Fourth";
 		RNation[4].Name = "Fifth";
+
 	}
 
 	void Update () {
@@ -47,6 +48,7 @@ public class NationScript : MonoBehaviour {
 		{
 			_timerForText = 0;
 			for(int i=0; i<RNation.Length; i++){
+				nationProfit[i]=1 + RNation[i].PlantNumber.water*100 + RNation[i].PlantNumber.fire*100 + RNation[i].PlantNumber.nuclear*100 + RNation[i].PlantNumber.sun*100 + RNation[i].PlantNumber.wind*100 + RNation[i].PlantNumber.gravity*100;
 				RNation[i].Money += nationProfit[i];
 			}
 		}

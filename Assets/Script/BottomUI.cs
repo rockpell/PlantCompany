@@ -124,9 +124,9 @@ public class BottomUI : MonoBehaviour {
 			if(PlayerState.Money>=300){
 				NationScript.RNation[nationSelect-1].DataLevel += 1;
 				PlayerState.Money -= 300;
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "정보수집을 시작합니다");
+				AllText("정보수집을 시작합니다");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else NewsScript.myQue.Enqueue("돈이 모자랍니다");
 			break;
 
 		case 2:
@@ -135,10 +135,9 @@ public class BottomUI : MonoBehaviour {
 				NationScript.RNation[nationSelect-1].PlayerPlant.water ++;
 				PlayerState.waterNumber++;
 				PlayerState.Money -=500;
-
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "수력발전소를 건설하였습니다.");
+				AllText("수력발전소를 건설하였습니다.");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else AllText("돈이 모자랍니다");
 			break;
 
 		case 3:
@@ -147,10 +146,9 @@ public class BottomUI : MonoBehaviour {
 				NationScript.RNation[nationSelect-1].PlayerPlant.fire ++;
 				PlayerState.fireNumber++;
 				PlayerState.Money -=500;
-
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "화력발전소를 건설하였습니다.");
+				AllText("화력발전소를 건설하였습니다.");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else AllText("돈이 모자랍니다");
 			break;
 
 		case 4:
@@ -159,10 +157,9 @@ public class BottomUI : MonoBehaviour {
 				NationScript.RNation[nationSelect-1].PlayerPlant.nuclear ++;
 				PlayerState.nuclearNumber++;
 				PlayerState.Money -=500;
-
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "원자력발전소를 건설하였습니다.");
+				AllText("원자력발전소를 건설하였습니다.");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else AllText("돈이 모자랍니다");
 			break;
 
 		case 5:
@@ -171,10 +168,9 @@ public class BottomUI : MonoBehaviour {
 				NationScript.RNation[nationSelect-1].PlayerPlant.sun ++;
 				PlayerState.sunNumber++;
 				PlayerState.Money -=500;
-
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "태양광발전소를 건설하였습니다.");
+				AllText("태양광발전소를 건설하였습니다.");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else AllText("돈이 모자랍니다");
 			break;
 
 		case 6:
@@ -183,10 +179,9 @@ public class BottomUI : MonoBehaviour {
 				NationScript.RNation[nationSelect-1].PlayerPlant.wind ++;
 				PlayerState.windNumber++;
 				PlayerState.Money -=500;
-
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "풍력발전소를 건설하였습니다.");
+				AllText("풍력발전소를 건설하였습니다.");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else AllText("돈이 모자랍니다");
 			break;
 
 		case 7:
@@ -195,15 +190,18 @@ public class BottomUI : MonoBehaviour {
 				NationScript.RNation[nationSelect-1].PlayerPlant.gravity ++;
 				PlayerState.gravityNumber++;
 				PlayerState.Money -=500;
-
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "중력발전소를 건설하였습니다.");
+				AllText("중력발전소를 건설하였습니다.");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else AllText("돈이 모자랍니다");
 			break;
 
 		case 8:
-			GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "발전 기술이 1이상이여만 건설 가능합니다");
+			AllText("발전 기술이 1이상이여만 건설 가능합니다");
 			break;
 		}
+	}
+
+	void AllText(string atext){
+		NewsScript.myQue.Enqueue(atext);
 	}
 }

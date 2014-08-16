@@ -14,7 +14,6 @@ public class CapitalSystem5 : MonoBehaviour {
 	}
 
 	void OnMouseUp(){
-		GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "다섯번째 나라를 클릭하였습니다");
 		BottomUI.nationSelect = 5;
 		BottomUI.constructCheck = false;
 	}

@@ -43,7 +43,7 @@ public class test : MonoBehaviour
 								if (MainCamera.position.x > 15 && Input.GetTouch (0).position.x - preX > 0) {// 왼쪽
 										transform.Translate (-0.5f, 0, 0, Space.World); 
 								}
-								if (MainCamera.position.x < 70 && Input.GetTouch (0).position.x - preX < 0) {// 오른쪽
+								if (MainCamera.position.x < 55 && Input.GetTouch (0).position.x - preX < 0) {// 오른쪽
 										transform.Translate (0.5f, 0, 0, Space.World); 
 								}
 								if (MainCamera.position.z > -43 && Input.GetTouch (0).position.y - preY > 0) { // 아래쪽

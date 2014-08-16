@@ -5,6 +5,8 @@ public class StateUI : MonoBehaviour {
 
 	public Vector2 scrollPosition = Vector2.zero;
 
+	public GUISkin GuiBox;
+
 	GUIText State;
 
 	int sw = Screen.width;
@@ -52,11 +54,15 @@ public class StateUI : MonoBehaviour {
 	
 
 	void OnGUI(){
+		GUI.skin = GuiBox;
 		if (GUI.Button (new Rect (0, sh / 3 - sh*1/32, sw / 10, sh / 14), "국가별 정보") && !pause) {
-			if (sample2ch)
+			if (sample2ch){
 				sample2ch = false;
+				actionButton = false;
+			}
 			if(sample3ch){
 				sample3ch = false;
+				actionButton = false;
 				characteristic=0;
 			}
 			if (sample1ch)
@@ -69,20 +75,26 @@ public class StateUI : MonoBehaviour {
 					sample1ch = false;
 			if(sample3ch){
 				sample3ch = false;
+				actionButton = false;
 				characteristic=0;
 			}
-			if (sample2ch)
+			if (sample2ch){
 				sample2ch = false;
+				actionButton = false;
+			}
 			else
 				sample2ch = true;
 				}
 		if(GUI.Button (new Rect(0,sh/3+sh*5/32,sw / 10,sh/14),"기술 특성") && !pause){
 			if (sample1ch)
 				sample1ch = false;
-			if(sample2ch)
+			if(sample2ch){
 				sample2ch = false;
+				actionButton = false;
+			}
 			if (sample3ch){
 				sample3ch = false;
+				actionButton = false;
 				characteristic=0;
 			}
 			else
@@ -240,27 +252,27 @@ public class StateUI : MonoBehaviour {
 			GUI.BeginGroup(new Rect(sw/2 -sw*5/40, sh/2-sh*3/8, sw*5 / 20, sh*10/16));
 			GUI.Box (new Rect (0, 0, sw*5 / 20, sh*10/16), "기술특성");
 
-			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*1/32+10, sw/5, sh / 15),"수력발전") && !pause){
+			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*1/32+10, sw/5, sh / 15),"수력발전") && !pause && characteristic==0){
 				characteristic=1;
 				charText="수력";
 			}
-			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*4/32+10, sw/5, sh / 15),"화력발전") && !pause){
+			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*4/32+10, sw/5, sh / 15),"화력발전") && !pause && characteristic==0){
 				characteristic=2;
 				charText="화력";
 			}
-			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*7/32+10, sw/5, sh / 15),"원자력발전") && !pause){
+			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*7/32+10, sw/5, sh / 15),"원자력발전") && !pause && characteristic==0){
 				characteristic=3;
 				charText="원자력";
 			}
-			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*10/32+10, sw/5, sh / 15),"태양광발전") && !pause){
+			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*10/32+10, sw/5, sh / 15),"태양광발전") && !pause && characteristic==0){
 				characteristic=4;
 				charText="태양광";
 			}
-			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*13/32+10, sw/5, sh / 15),"풍력발전") && !pause){
+			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*13/32+10, sw/5, sh / 15),"풍력발전") && !pause && characteristic==0){
 				characteristic=5;
 				charText="풍력";
 			}
-			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*16/32+10, sw/5, sh / 15),"중력발전") && !pause){
+			if(GUI.Button(new Rect(sw*5/40 - sw/10,  sh*16/32+10, sw/5, sh / 15),"중력발전") && !pause && characteristic==0){
 				characteristic=6;
 				charText="중력";
 			}
@@ -312,55 +324,55 @@ public class StateUI : MonoBehaviour {
 			if(PlayerState.Money>=500){
 				PlayerState.waterLevel += 1;
 				PlayerState.Money -=500;
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "수력발전 기술에 투자하였습니다");
+				NewsScript.myQue.Enqueue ("수력발전 기술에 투자하였습니다");
+
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 			break;
 			
 		case 2:
 			if(PlayerState.Money>=500){
 				PlayerState.fireLevel += 1;
 				PlayerState.Money -=500;
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "화력발전 기술에 투자하였습니다");
+				NewsScript.myQue.Enqueue("화력발전 기술에 투자하였습니다");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else NewsScript.myQue.Enqueue("돈이 모자랍니다");
 			break;
 			
 		case 3:
 			if(PlayerState.Money>=500){
 				PlayerState.nuclearLevel += 1;
 				PlayerState.Money -=500;
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "원자력발전 기술에 투자하였습니다");
+				NewsScript.myQue.Enqueue("원자력발전 기술에 투자하였습니다");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else NewsScript.myQue.Enqueue("돈이 모자랍니다");
 			break;
 			
 		case 4:
 			if(PlayerState.Money>=500){
 				PlayerState.sunLevel += 1;
 				PlayerState.Money -=500;
-				
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "태양광발전 기술에 투자하였습니다");
+				NewsScript.myQue.Enqueue("태양광발전 기술에 투자하였습니다");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else NewsScript.myQue.Enqueue("돈이 모자랍니다");
 			break;
 			
 		case 5:
 			if(PlayerState.Money>=500){
 				PlayerState.windLevel += 1;
 				PlayerState.Money -=500;
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "풍력발전 기술에 투자하였습니다");
+				NewsScript.myQue.Enqueue("풍력발전 기술에 투자하였습니다");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else NewsScript.myQue.Enqueue("돈이 모자랍니다");
 			break;
 			
 		case 6:
 			if(PlayerState.Money>=500){
 				PlayerState.gravityLevel += 1;
 				PlayerState.Money -=500;
-				GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "중력발전 기술에 투자하였습니다");
+				NewsScript.myQue.Enqueue("중력발전 기술에 투자하였습니다");
 			}
-			else GameObject.Find ("NewsMaster").SendMessage ("TextMessage", "돈이 모자랍니다");
+			else NewsScript.myQue.Enqueue("돈이 모자랍니다");
 			break;
 		}
 	}

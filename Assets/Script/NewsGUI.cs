@@ -4,6 +4,10 @@ using System.Collections;
 public class NewsGUI : MonoBehaviour {
 	
 	public float timeDelay = 2.0f;
+
+	bool timeCheck = false;
+	bool timePass = false;
+
 	// Use this for initialization
 	void Start () {
 		StartCoroutine("DisplayScore"); 
@@ -11,9 +15,7 @@ public class NewsGUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 pos = transform.position;
-		pos.y += 0.0005f;
-		transform.position = pos;
+		if(!timeCheck)StartCoroutine ("UpMehod");
 	}
 	IEnumerator DisplayScore()
 	{
@@ -26,5 +28,18 @@ public class NewsGUI : MonoBehaviour {
 		}
 		
 		Destroy(gameObject);
+	}
+
+	IEnumerator UpMehod(){
+		Vector3 pos = transform.position;
+		pos.y += 0.0005f;
+		transform.position = pos;
+		if (pos.y >= 0.98F && !timePass) {
+			//Debug.Log("Time Stop");
+			timeCheck = true;
+			yield return new WaitForSeconds (0.5f);
+			timePass = true;
+			timeCheck = false;
+		}
 	}
 }

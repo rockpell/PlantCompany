@@ -60,6 +60,7 @@
      <Compile Include="Assets\Script\NationStateUI.cs" />
      <Compile Include="Assets\Script\NewsGUI.cs" />
      <Compile Include="Assets\Script\NewsScript.cs" />
+     <Compile Include="Assets\Script\Pirates.cs" />
      <Compile Include="Assets\Script\PlayerState.cs" />
      <Compile Include="Assets\Script\SettingUI.cs" />
      <Compile Include="Assets\Script\StateUI.cs" />

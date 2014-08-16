@@ -13,7 +13,7 @@ public class CameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(MainCamera.position.x<70){ // 카메라 오른쪽 이동
+		if(MainCamera.position.x<55){ // 카메라 오른쪽 이동
 			if(Input.GetKey(KeyCode.RightArrow)){
 				transform.Translate(0.5f,0,0,Space.World);
 		}

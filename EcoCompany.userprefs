@@ -1,16 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\test.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\NewsGUI.cs">
     <Files>
-      <File FileName="Assets\Script\NationScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\SettingUI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\CameraMove.cs" Line="48" Column="31" />
-      <File FileName="Assets\Script\PlayerState.cs" Line="64" Column="47" />
-      <File FileName="Assets\Script\StateUI.cs" Line="288" Column="34" />
-      <File FileName="Assets\Script\BottomUI.cs" Line="144" Column="10" />
-      <File FileName="Assets\Script\test.cs" Line="44" Column="59" />
-      <File FileName="Assets\Script\NewsScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\GameStart.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\NationScript.cs" Line="46" Column="16" />
+      <File FileName="Assets\Script\CameraMove.cs" Line="14" Column="18" />
+      <File FileName="Assets\Script\PlayerState.cs" Line="23" Column="34" />
+      <File FileName="Assets\Script\StateUI.cs" Line="340" Column="10" />
+      <File FileName="Assets\Script\BottomUI.cs" Line="195" Column="29" />
+      <File FileName="Assets\Script\NewsScript.cs" Line="33" Column="49" />
+      <File FileName="Assets\Script\Pirates.cs" Line="73" Column="3" />
+      <File FileName="Assets\Script\MapGeneration.cs" Line="64" Column="25" />
+      <File FileName="Assets\Script\Timer.cs" Line="27" Column="18" />
+      <File FileName="Assets\Script\NewsGUI.cs" Line="37" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
