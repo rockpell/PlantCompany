@@ -1,13 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\NationScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\MapGeneration.cs">
     <Files>
-      <File FileName="Assets\Script\AreaGeneration.cs" Line="164" Column="3" />
-      <File FileName="Assets\Script\MapGeneration.cs" Line="77" Column="25" />
-      <File FileName="Assets\Script\NationScript.cs" Line="64" Column="2" />
-      <File FileName="Assets\Script\PlayerState.cs" Line="26" Column="18" />
-      <File FileName="Assets\Script\BottomUI.cs" Line="183" Column="47" />
-      <File FileName="Assets\Script\StateUI.cs" Line="314" Column="22" />
+      <File FileName="PlantCompany.sln" Line="40" Column="1" />
+      <File FileName="Assets\Script\MapGeneration.cs" Line="28" Column="55" />
+      <File FileName="Assets\Script\AreaGeneration.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\MapGeneration.cs" Line="81" Column="1" />
+      <File FileName="Assets\Script\NationScript.cs" Line="55" Column="1" />
+      <File FileName="Assets\Script\PlayerState.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\BottomUI.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\StateUI.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\NationStateUI.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
