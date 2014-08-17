@@ -59,37 +59,77 @@ public class PlayerState : MonoBehaviour {
 		Characteristic [] PlantCharter = new Characteristic[6];
 
 		switch(plant){
-		case 1:
+		case 1: // 수력
 			if(chart==1){
 				PlantCharter[plant-1].constructExpenses++;
 			}
-			else if(chart==2)PlantCharter[plant-1].output++;
-			else if(chart==3)PlantCharter[plant-1].environment++;
+			else if(chart==2){
+				PlantCharter[plant-1].output++;
+				waterpowerMoney += waterpowerMoney/10;
+			}
+			else if(chart==3){
+				PlantCharter[plant-1].environment++;
+			}
 			break;
-		case 2:
-			if(chart==1)PlantCharter[plant-1].constructExpenses++;
-			else if(chart==2)PlantCharter[plant-1].output++;
-			else if(chart==3)PlantCharter[plant-1].environment++;
+		case 2: // 화력
+			if(chart==1){
+				PlantCharter[plant-1].constructExpenses++;
+			}
+			else if(chart==2){
+				PlantCharter[plant-1].output++;
+				thermalpowerMoney += thermalpowerMoney/10;
+			}
+			else if(chart==3){
+				PlantCharter[plant-1].environment++;
+			}
 			break;
-		case 3:
-			if(chart==1)PlantCharter[plant-1].constructExpenses++;
-			else if(chart==2)PlantCharter[plant-1].output++;
-			else if(chart==3)PlantCharter[plant-1].environment++;
+		case 3: // 원자력
+			if(chart==1){
+				PlantCharter[plant-1].constructExpenses++;
+			}
+			else if(chart==2){
+				PlantCharter[plant-1].output++;
+				nuclearpowerMoney += nuclearpowerMoney/10;
+			}
+			else if(chart==3){
+				PlantCharter[plant-1].environment++;
+			}
 			break;
-		case 4:
-			if(chart==1)PlantCharter[plant-1].constructExpenses++;
-			else if(chart==2)PlantCharter[plant-1].output++;
-			else if(chart==3)PlantCharter[plant-1].environment++;
+		case 4: // 태양광
+			if(chart==1){
+				PlantCharter[plant-1].constructExpenses++;
+			}
+			else if(chart==2){
+				PlantCharter[plant-1].output++;
+				solarpowerMoney += solarpowerMoney/10;
+			}
+			else if(chart==3){
+				PlantCharter[plant-1].environment++;
+			}
 			break;
-		case 5:
-			if(chart==1)PlantCharter[plant-1].constructExpenses++;
-			else if(chart==2)PlantCharter[plant-1].output++;
-			else if(chart==3)PlantCharter[plant-1].environment++;
+		case 5: // 풍력
+			if(chart==1){
+				PlantCharter[plant-1].constructExpenses++;
+			}
+			else if(chart==2){
+				PlantCharter[plant-1].output++;
+				windpowerMoney += windpowerMoney/10;
+			}
+			else if(chart==3){
+				PlantCharter[plant-1].environment++;
+			}
 			break;
-		case 6:
-			if(chart==1)PlantCharter[plant-1].constructExpenses++;
-			else if(chart==2)PlantCharter[plant-1].output++;
-			else if(chart==3)PlantCharter[plant-1].environment++;
+		case 6: // 중력
+			if(chart==1){
+				PlantCharter[plant-1].constructExpenses++;
+			}
+			else if(chart==2){
+				PlantCharter[plant-1].output++;
+				gravitypowerMoney += gravitypowerMoney/10;
+			}
+			else if(chart==3){
+				PlantCharter[plant-1].environment++;
+			}
 			break;
 		}
 	}

@@ -15,7 +15,7 @@ public class NewsScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		TextMessage ("게임이 시작되었습니다.");
+		//myQue.Enqueue("게임이 시작되었습니다.");
 	}
 	
 	// Update is called once per frame
