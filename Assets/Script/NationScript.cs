@@ -25,7 +25,12 @@ public class NationScript : MonoBehaviour {
 	public static allNation [] RNation = new allNation[5];
 	public static int [] nationProfit = new int[RNation.Length];
 
-
+	int waterpoewrMoney = PlayerState.waterpowerMoney;
+	int thermalpowerMoney = PlayerState.thermalpowerMoney;
+	int nuclearpowerMoney = PlayerState.nuclearpowerMoney;
+	int solarpowerMoney = PlayerState.solarpowerMoney;
+	int windpowerMoney = PlayerState.windpowerMoney;
+	int gravitypowerMoney = PlayerState.gravitypowerMoney;
 
 	float _timerForText;
 
@@ -48,7 +53,7 @@ public class NationScript : MonoBehaviour {
 		{
 			_timerForText = 0;
 			for(int i=0; i<RNation.Length; i++){
-				nationProfit[i]=1 + RNation[i].PlantNumber.water*100 + RNation[i].PlantNumber.fire*100 + RNation[i].PlantNumber.nuclear*100 + RNation[i].PlantNumber.sun*100 + RNation[i].PlantNumber.wind*100 + RNation[i].PlantNumber.gravity*100;
+				nationProfit[i]=1 + RNation[i].PlantNumber.water*waterpoewrMoney + RNation[i].PlantNumber.fire*thermalpowerMoney + RNation[i].PlantNumber.nuclear*nuclearpowerMoney + RNation[i].PlantNumber.sun*solarpowerMoney + RNation[i].PlantNumber.wind*windpowerMoney + RNation[i].PlantNumber.gravity*gravitypowerMoney;
 				RNation[i].Money += nationProfit[i];
 			}
 		}

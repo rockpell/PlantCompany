@@ -22,6 +22,13 @@ public class StateUI : MonoBehaviour
 		string actionText;
 		PlayerState abc = new PlayerState ();
 
+	int waterInvestment = 100; // 기술투자 비용
+	int fireInvestment = 200;
+	int nuclearInvestment = 800;
+	int sunInvestment = 100;
+	int windInvestment = 300;
+	int gravityInvestment = 400;
+
 		void Start ()
 		{
 				State = gameObject.GetComponent<GUIText> ();
@@ -318,9 +325,9 @@ public class StateUI : MonoBehaviour
 				switch (number) {
 			
 				case 1:
-						if (PlayerState.Money >= 500) {
+						if (PlayerState.Money >= waterInvestment) {
 								PlayerState.waterLevel += 1;
-								PlayerState.Money -= 500;
+								PlayerState.Money -= waterInvestment;
 								NewsScript.myQue.Enqueue ("수력발전 기술에 투자하였습니다");
 
 						} else
@@ -328,45 +335,45 @@ public class StateUI : MonoBehaviour
 						break;
 			
 				case 2:
-						if (PlayerState.Money >= 500) {
+						if (PlayerState.Money >= fireInvestment) {
 								PlayerState.fireLevel += 1;
-								PlayerState.Money -= 500;
+								PlayerState.Money -= fireInvestment;
 								NewsScript.myQue.Enqueue ("화력발전 기술에 투자하였습니다");
 						} else
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						break;
 			
 				case 3:
-						if (PlayerState.Money >= 500) {
+						if (PlayerState.Money >= nuclearInvestment) {
 								PlayerState.nuclearLevel += 1;
-								PlayerState.Money -= 500;
+								PlayerState.Money -= nuclearInvestment;
 								NewsScript.myQue.Enqueue ("원자력발전 기술에 투자하였습니다");
 						} else
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						break;
 			
 				case 4:
-						if (PlayerState.Money >= 500) {
+						if (PlayerState.Money >= sunInvestment) {
 								PlayerState.sunLevel += 1;
-								PlayerState.Money -= 500;
+								PlayerState.Money -= sunInvestment;
 								NewsScript.myQue.Enqueue ("태양광발전 기술에 투자하였습니다");
 						} else
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						break;
 			
 				case 5:
-						if (PlayerState.Money >= 500) {
+						if (PlayerState.Money >= windInvestment) {
 								PlayerState.windLevel += 1;
-								PlayerState.Money -= 500;
+								PlayerState.Money -= windInvestment;
 								NewsScript.myQue.Enqueue ("풍력발전 기술에 투자하였습니다");
 						} else
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						break;
 			
 				case 6:
-						if (PlayerState.Money >= 500) {
+						if (PlayerState.Money >= gravityInvestment) {
 								PlayerState.gravityLevel += 1;
-								PlayerState.Money -= 500;
+								PlayerState.Money -= gravityInvestment;
 								NewsScript.myQue.Enqueue ("중력발전 기술에 투자하였습니다");
 						} else
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
@@ -380,22 +387,22 @@ public class StateUI : MonoBehaviour
 
 				switch (plantKind) {
 				case 1:
-						text = "Lv" + number + " 투자비용 : 500"; // 투자비용은 기술의 종류와 레벨마다 다르기 때문에 구분
+						text = "Lv" + number + " 투자비용 : "+waterInvestment; // 투자비용은 기술의 종류와 레벨마다 다르기 때문에 구분
 						break;
 				case 2:
-						text = "Lv" + number + " 투자비용 : 500";
+						text = "Lv" + number + " 투자비용 : "+fireInvestment;
 						break;
 				case 3:
-						text = "Lv" + number + " 투자비용 : 500";
+						text = "Lv" + number + " 투자비용 : "+nuclearInvestment;
 						break;
 				case 4:
-						text = "Lv" + number + " 투자비용 : 500";
+						text = "Lv" + number + " 투자비용 : "+sunInvestment;
 						break;
 				case 5:
-						text = "Lv" + number + " 투자비용 : 500";
+						text = "Lv" + number + " 투자비용 : "+windInvestment;
 						break;
 				case 6:
-						text = "Lv" + number + " 투자비용 : 500";
+						text = "Lv" + number + " 투자비용 : "+gravityInvestment;
 						break;
 				}
 		

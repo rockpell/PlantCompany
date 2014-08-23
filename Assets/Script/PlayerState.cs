@@ -6,12 +6,12 @@ public class PlayerState : MonoBehaviour {
 	public static int Money = 1000; // 플레이어 자금
 	public static int time_Money=1; //시간당 자금
 
-	public static int waterpowerMoney=200; //수력발전소 시간당 들어오는 자금
-	public static int thermalpowerMoney=300; //화력발전소 시간당 들어오는 자금
-	public static int nuclearpowerMoney=400; //원자력발전소 시간당 들어오는 자금
-	public static int solarpowerMoney=500; //태양광발전소 시간당 들어오는 자금
-	public static int windpowerMoney=600; //풍력발전소 시간당 들어오는 자금
-	public static int gravitypowerMoney=700; //중력발전소 시간당 들어오 자금
+	public static int waterpowerMoney=20; //수력발전소 시간당 들어오는 자금
+	public static int thermalpowerMoney=30; //화력발전소 시간당 들어오는 자금
+	public static int nuclearpowerMoney=50; //원자력발전소 시간당 들어오는 자금
+	public static int solarpowerMoney=5; //태양광발전소 시간당 들어오는 자금
+	public static int windpowerMoney=30; //풍력발전소 시간당 들어오는 자금
+	public static int gravitypowerMoney=40; //중력발전소 시간당 들어오 자금
 
 	public static int waterLevel=0; // 발전기술레벨
 	public static int fireLevel=0;

@@ -13,6 +13,13 @@ public class BottomUI : MonoBehaviour {
 	int sw = Screen.width;
 	int sh = Screen.height;
 
+	int waterCost = 200; // 발전소 건설 비용
+	int fireCost = 100;
+	int nuclearCost = 500;
+	int sunCost = 100;
+	int windCost = 300;
+	int gravityCost = 400;
+
 	int selectNumber=0; // 선택 번호 ex) 1:정보수집, 2:수력, 3: 화력, 4:원자력, 5:태양광, 6:풍력, 7:중력
 
 	string actionText;
@@ -130,66 +137,66 @@ public class BottomUI : MonoBehaviour {
 			break;
 
 		case 2:
-			if(PlayerState.Money>=500){
+			if(PlayerState.Money>=waterCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.water ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.water ++;
 				PlayerState.waterNumber++;
-				PlayerState.Money -=500;
+				PlayerState.Money -=waterCost;
 				AllText("수력발전소를 건설하였습니다.");
 			}
 			else AllText("돈이 모자랍니다");
 			break;
 
 		case 3:
-			if(PlayerState.Money>=500){
+			if(PlayerState.Money>=fireCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.fire ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.fire ++;
 				PlayerState.fireNumber++;
-				PlayerState.Money -=500;
+				PlayerState.Money -=fireCost;
 				AllText("화력발전소를 건설하였습니다.");
 			}
 			else AllText("돈이 모자랍니다");
 			break;
 
 		case 4:
-			if(PlayerState.Money>=500){
+			if(PlayerState.Money>=nuclearCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.nuclear ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.nuclear ++;
 				PlayerState.nuclearNumber++;
-				PlayerState.Money -=500;
+				PlayerState.Money -=nuclearCost;
 				AllText("원자력발전소를 건설하였습니다.");
 			}
 			else AllText("돈이 모자랍니다");
 			break;
 
 		case 5:
-			if(PlayerState.Money>=500){
+			if(PlayerState.Money>=sunCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.sun ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.sun ++;
 				PlayerState.sunNumber++;
-				PlayerState.Money -=500;
+				PlayerState.Money -=sunCost;
 				AllText("태양광발전소를 건설하였습니다.");
 			}
 			else AllText("돈이 모자랍니다");
 			break;
 
 		case 6:
-			if(PlayerState.Money>=500){
+			if(PlayerState.Money>=windCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.wind ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.wind ++;
 				PlayerState.windNumber++;
-				PlayerState.Money -=500;
+				PlayerState.Money -=windCost;
 				AllText("풍력발전소를 건설하였습니다.");
 			}
 			else AllText("돈이 모자랍니다");
 			break;
 
 		case 7:
-			if(PlayerState.Money>=500){
+			if(PlayerState.Money>=gravityCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.gravity ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.gravity ++;
 				PlayerState.gravityNumber++;
-				PlayerState.Money -=500;
+				PlayerState.Money -=gravityCost;
 				AllText("중력발전소를 건설하였습니다.");
 			}
 			else AllText("돈이 모자랍니다");
