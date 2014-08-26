@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerState : MonoBehaviour {
 
-	public static int Money = 1000; // 플레이어 자금
+	public static int Money = 500; // 플레이어 자금
 	public static int time_Money=1; //시간당 자금
 
 	public static int waterpowerMoney=20; //수력발전소 시간당 들어오는 자금
@@ -26,6 +26,13 @@ public class PlayerState : MonoBehaviour {
 	public static int sunNumber=0;
 	public static int windNumber=0;
 	public static int gravityNumber=0;
+
+	public static int waterCost = 200; // 발전소 건설 비용
+	public static int fireCost = 100;
+	public static int nuclearCost = 500;
+	public static int sunCost = 100;
+	public static int windCost = 300;
+	public static int gravityCost = 400;
 
 	public struct Characteristic{
 		public int constructExpenses;
@@ -62,6 +69,7 @@ public class PlayerState : MonoBehaviour {
 		case 1: // 수력
 			if(chart==1){
 				PlantCharter[plant-1].constructExpenses++;
+				waterCost -= waterCost/10;
 			}
 			else if(chart==2){
 				PlantCharter[plant-1].output++;
@@ -74,6 +82,7 @@ public class PlayerState : MonoBehaviour {
 		case 2: // 화력
 			if(chart==1){
 				PlantCharter[plant-1].constructExpenses++;
+				fireCost -= fireCost/10;
 			}
 			else if(chart==2){
 				PlantCharter[plant-1].output++;
@@ -86,6 +95,7 @@ public class PlayerState : MonoBehaviour {
 		case 3: // 원자력
 			if(chart==1){
 				PlantCharter[plant-1].constructExpenses++;
+				nuclearCost -= nuclearCost/10;
 			}
 			else if(chart==2){
 				PlantCharter[plant-1].output++;
@@ -98,6 +108,7 @@ public class PlayerState : MonoBehaviour {
 		case 4: // 태양광
 			if(chart==1){
 				PlantCharter[plant-1].constructExpenses++;
+				sunCost -=sunCost/10;
 			}
 			else if(chart==2){
 				PlantCharter[plant-1].output++;
@@ -110,6 +121,7 @@ public class PlayerState : MonoBehaviour {
 		case 5: // 풍력
 			if(chart==1){
 				PlantCharter[plant-1].constructExpenses++;
+				windCost -= windCost/10;
 			}
 			else if(chart==2){
 				PlantCharter[plant-1].output++;
@@ -122,6 +134,7 @@ public class PlayerState : MonoBehaviour {
 		case 6: // 중력
 			if(chart==1){
 				PlantCharter[plant-1].constructExpenses++;
+				gravityCost -= gravityCost/10;
 			}
 			else if(chart==2){
 				PlantCharter[plant-1].output++;

@@ -16,7 +16,7 @@ public class Pirates : MonoBehaviour
 
 		void Start ()
 		{
-			NewsScript.myQue.Enqueue (invastionTime+"초에 해적이 침략합니다.");
+			NewsScript.myQue.Enqueue (invastionTime+"초 후에 해적이 침략합니다.");
 		}
 
 		void initialize ()
@@ -39,6 +39,7 @@ public class Pirates : MonoBehaviour
 			if(invastionTime==0){
 				DoInvasion(Target());
 				initialize();
+				NewsScript.myQue.Enqueue (invastionTime+"초 후에 해적이 침략합니다.");
 			}
 				}
 		}
@@ -68,16 +69,26 @@ public class Pirates : MonoBehaviour
 		void DoInvasion (int target)
 		{
 		string abc;
-		int harmMoney;
+		int harmMoney; // 플레이어 피해량
+		int invasionMoney; // 국가 피해량
+
+		int waterInvasion = 200; // 발전소 피해량
+		int fireInvastion = 300;
+		int nuclearInvastion = 500;
+		int sunInvastion = 100;
+		int windInvastion = 200;
+		int gravityInvastion = 400;
 
 		abc = "해적이 " +NationScript.RNation[target].Name+"를 침략합니다";
 		NewsScript.myQue.Enqueue (abc);
 
-		abc = NationScript.RNation[target].Name+"는 "+NationScript.RNation[target].Money/10 + "를 약탈당했습니다";
-		NationScript.RNation [target].Money -= NationScript.RNation [target].Money / 10;
+		invasionMoney = NationScript.RNation [target].Money / 6;
+
+		abc = NationScript.RNation[target].Name+"는 "+invasionMoney + "를 약탈당했습니다";
+		NationScript.RNation [target].Money -= invasionMoney;
 		NewsScript.myQue.Enqueue (abc);
 
-		harmMoney = NationScript.RNation [target].PlantNumber.water * 100 + NationScript.RNation [target].PlantNumber.fire * 100 + NationScript.RNation [target].PlantNumber.nuclear * 100 + NationScript.RNation [target].PlantNumber.sun * 100 + NationScript.RNation [target].PlantNumber.wind * 100 + NationScript.RNation [target].PlantNumber.gravity * 100;
+		harmMoney = NationScript.RNation [target].PlantNumber.water * waterInvasion + NationScript.RNation [target].PlantNumber.fire * fireInvastion + NationScript.RNation [target].PlantNumber.nuclear * nuclearInvastion + NationScript.RNation [target].PlantNumber.sun * sunInvastion + NationScript.RNation [target].PlantNumber.wind * windInvastion + NationScript.RNation [target].PlantNumber.gravity * gravityInvastion;
 		PlayerState.Money -= harmMoney;
 		abc = "당신은 "+harmMoney + "만큼의 금전적 피해를 입었습니다";
 		NewsScript.myQue.Enqueue (abc);
