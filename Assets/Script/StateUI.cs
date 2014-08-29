@@ -317,24 +317,24 @@ public class StateUI : MonoBehaviour
 				}
 		
 				if (sample3ch && characteristic > 0) {
-						GUI.BeginGroup (new Rect (sw / 2 + sw * 5 / 40, sh / 2 - sh * 2 / 8, sw * 1 / 5, sh / 4));
+						GUI.BeginGroup (new Rect (sw / 2 + sw * 5 / 40, sh / 2 - sh * 2 / 8, sw * 1 / 5, sh / 4 - sh/16));
 
 						charCostText();  // 특성 투자 비용 텍스트
 
-						GUI.Box (new Rect (0, 0, sw * 1 / 5, sh / 4), charText + "특성");
+						GUI.Box (new Rect (0, 0, sw * 1 / 5, sh / 4 - sh/16), charText + "특성");
 
-						if (GUI.Button (new Rect (0, sh / 30, sw * 1 / 5, sh / 16), "건설 비용 감소("+costText1+")") && !pause) {
+						if (GUI.Button (new Rect (0, sh / 30+5, sw * 1 / 5, sh / 16), "건설 비용 감소("+costText1+")") && !pause) {
 								characterSelect = 1;
 								actionButton = true;
 						}
-						if (GUI.Button (new Rect (0, sh / 30 + sh / 16 + 5, sw * 1 / 5, sh / 16), "생산량 증가("+costText2+")") && !pause) {
+						if (GUI.Button (new Rect (0, sh / 30 + sh / 16 + 10, sw * 1 / 5, sh / 16), "생산량 증가("+costText2+")") && !pause) {
 								characterSelect = 2;
 								actionButton = true;
 						}
-						if (GUI.Button (new Rect (0, sh / 30 + sh * 2 / 16 + 10, sw * 1 / 5, sh / 16), "친환경성 증가("+costText3+")") && !pause) {
+						/*if (GUI.Button (new Rect (0, sh / 30 + sh * 2 / 16 + 10, sw * 1 / 5, sh / 16), "친환경성 증가("+costText3+")") && !pause) {
 								characterSelect = 3;
 								actionButton = true;
-						}
+						}*/
 
 						GUI.EndGroup ();
 				}
@@ -469,7 +469,7 @@ public class StateUI : MonoBehaviour
 						} else if (charSelect == 3 && PlayerState.Money >= fireCharInvest.eco) { // 친환경성 증가
 								PlayerState.Money -= fireCharInvest.eco;
 								PlayerState.PlantChar (charnumber, charSelect);
-								NewsScript.myQue.Enqueue ("화력 친황경성 특성에 투자하였습니다");
+								NewsScript.myQue.Enqueue ("화력 친환경성 특성에 투자하였습니다");
 						} else {
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						}

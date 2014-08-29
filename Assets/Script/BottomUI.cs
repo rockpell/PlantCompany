@@ -6,6 +6,7 @@ public class BottomUI : MonoBehaviour {
 	public static int nationSelect = 0; // 나라 선택
 	public static bool constructCheck = false;
 	public Vector2 scrollPosition = Vector2.zero;
+	public GUISkin GuiBox;
 
 	bool ActionButton = false; // 확인창 활성화
 	bool pause = false; // 게임 일시정지 변수
@@ -37,19 +38,22 @@ public class BottomUI : MonoBehaviour {
 	}
 
 	void OnGUI(){
+		GUI.skin = GuiBox;
+
 		if (nationSelect>0) {
 			if(GUI.Button (new Rect (sw * 17 / 20, sh * 10 / 12, sw / 10, sh / 15), "발전소 건설") && !pause){
 				if(constructCheck)constructCheck=false;
 				else constructCheck = true;
 			}
-			if(GUI.Button (new Rect (sw * 17 / 20, sh * 11 / 12, sw / 10, sh / 15), "정보수집") && !pause){
+			/*if(GUI.Button (new Rect (sw * 17 / 20, sh * 11 / 12, sw / 10, sh / 15), "정보수집") && !pause){
 				ActionButton = true;
 				constructCheck=false;
 				selectNumber = 1;
 				ActionText("정보수집을 ");
-			}
+			}*/
 		}
 		if (constructCheck) {
+			Debug.Log("constructCheck");
 			GUI.BeginGroup(new Rect(sw * 7 / 10, sh * 2 / 5 - sh * 2 / 15, sw*3 / 10 , sh * 15 / 30+10));
 			GUI.Box (new Rect (0,0, sw*3 / 10 , sh * 15 / 30+10), "");
 
