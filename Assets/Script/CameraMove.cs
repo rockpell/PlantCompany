@@ -5,6 +5,11 @@ public class CameraMove : MonoBehaviour {
 
 	public Transform MainCamera;
 
+	float cameraUpLimit = -25;
+	float cameraDownLimit = -43;
+	float cameraRightLimit = 40;
+	float cameraLeftLimit = 30;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -13,7 +18,7 @@ public class CameraMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(MainCamera.position.x<55){ // 카메라 오른쪽 이동
+		if(MainCamera.position.x<cameraRightLimit){ // 카메라 오른쪽 이동
 			if(Input.GetKey(KeyCode.RightArrow)){
 				transform.Translate(0.5f,0,0,Space.World);
 		}
@@ -23,7 +28,7 @@ public class CameraMove : MonoBehaviour {
 		}
 
 
-		if(MainCamera.position.x>15){ // 카메라 왼쪽 이동
+		if(MainCamera.position.x>cameraLeftLimit){ // 카메라 왼쪽 이동
 		if(Input.GetKey(KeyCode.LeftArrow)){
 			transform.Translate(-0.5f,0,0,Space.World);
 		}
@@ -34,7 +39,7 @@ public class CameraMove : MonoBehaviour {
 		}*/
 		}
 
-		if(MainCamera.position.z<-13){ // 카메라 위로 이동
+		if(MainCamera.position.z<cameraUpLimit){ // 카메라 위로 이동
 		if(Input.GetKey(KeyCode.UpArrow)){
 			transform.Translate(0,0,0.5f,Space.World);
 		}
@@ -45,7 +50,7 @@ public class CameraMove : MonoBehaviour {
 		}*/
 		}
 
-		if(MainCamera.position.z>-43){ // 카메로 아래로 이동
+		if(MainCamera.position.z>cameraDownLimit){ // 카메로 아래로 이동
 		if(Input.GetKey(KeyCode.DownArrow)){
 			transform.Translate(0,0,-0.5f,Space.World);
 		}
@@ -59,12 +64,19 @@ public class CameraMove : MonoBehaviour {
 	if (MainCamera.position.y < 50) {
 						if (Input.GetAxis ("Mouse ScrollWheel") < 0) { // 축소
 								transform.Translate (0, 0.5f, 0, Space.World); 
+				cameraUpLimit -= 0.2f;
+				cameraRightLimit -= 0.2f;
+				cameraLeftLimit += 0.2f;
 						}
 				}
 
 	if (MainCamera.position.y > 20) {
 						if (Input.GetAxis ("Mouse ScrollWheel") > 0) { // 확대
 								transform.Translate (0, -0.5f, 0, Space.World); 
+				cameraUpLimit += 0.2f;
+				cameraRightLimit += 0.2f;
+				cameraLeftLimit -= 0.2f;
+
 						}
 				}
 

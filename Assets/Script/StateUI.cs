@@ -30,15 +30,14 @@ public class StateUI : MonoBehaviour
 		{
 				public int construct;
 				public int produce;
-				public int eco;
 		}
 
-		int waterInvestment = 100; // 기술 투자 비용
-		int fireInvestment = 200;
-		int nuclearInvestment = 800;
-		int sunInvestment = 100;
-		int windInvestment = 300;
-		int gravityInvestment = 400;
+		int waterInvestment = 500; // 기술 투자 비용
+		int fireInvestment = 750;
+		int nuclearInvestment = 2000;
+		int sunInvestment = 450;
+		int windInvestment = 900;
+		int gravityInvestment = 1200;
 
 		charInvest waterCharInvest; // 특성 투자 비용
 		charInvest fireCharInvest;
@@ -50,29 +49,23 @@ public class StateUI : MonoBehaviour
 		void Start ()
 		{
 				State = gameObject.GetComponent<GUIText> ();
-				waterCharInvest.construct = 100;
-				waterCharInvest.produce = 100;
-				waterCharInvest.eco = 100;
+				waterCharInvest.construct = 1000;
+				waterCharInvest.produce = 800;
 
-				fireCharInvest.construct = 200;
-				fireCharInvest.produce = 200;
-				fireCharInvest.eco = 200;
+				fireCharInvest.construct = 1300;
+				fireCharInvest.produce = 900;
 
-				nuclearCharInvest.construct = 500;
-				nuclearCharInvest.produce = 500;
-				nuclearCharInvest.eco = 500;
+				nuclearCharInvest.construct = 3000;
+				nuclearCharInvest.produce = 2500;
 
-				sunCharInvest.construct = 50;
-				sunCharInvest.produce = 50;
-				sunCharInvest.eco = 50;
+				sunCharInvest.construct = 400;
+				sunCharInvest.produce = 500;
 
-				windCharInvest.construct = 200;
-				windCharInvest.produce = 200;
-				windCharInvest.eco = 200;
+				windCharInvest.construct = 600;
+				windCharInvest.produce = 800;
 
-				gravityCharInvest.construct = 400;
-				gravityCharInvest.produce = 400;
-				gravityCharInvest.eco = 400;
+				gravityCharInvest.construct = 1000;
+				gravityCharInvest.produce = 1500;
 		}
 	
 		// Update is called once per frame
@@ -449,10 +442,6 @@ public class StateUI : MonoBehaviour
 								PlayerState.Money -= waterCharInvest.produce;
 								PlayerState.PlantChar (charnumber, charSelect);
 								NewsScript.myQue.Enqueue ("수력 생산량 특성에 투자하였습니다");
-						} else if (charSelect == 3 && PlayerState.Money >= waterCharInvest.eco) { // 친환경성 증가
-								PlayerState.Money -= waterCharInvest.eco;
-								PlayerState.PlantChar (charnumber, charSelect);
-								NewsScript.myQue.Enqueue ("수력 친환경성 특성에 투자하였습니다");
 						} else {
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						}
@@ -466,10 +455,6 @@ public class StateUI : MonoBehaviour
 								PlayerState.Money -= fireCharInvest.produce;
 								PlayerState.PlantChar (charnumber, charSelect);
 								NewsScript.myQue.Enqueue ("화력 생산량 특성에 투자하였습니다");
-						} else if (charSelect == 3 && PlayerState.Money >= fireCharInvest.eco) { // 친환경성 증가
-								PlayerState.Money -= fireCharInvest.eco;
-								PlayerState.PlantChar (charnumber, charSelect);
-								NewsScript.myQue.Enqueue ("화력 친환경성 특성에 투자하였습니다");
 						} else {
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						}
@@ -483,11 +468,7 @@ public class StateUI : MonoBehaviour
 								PlayerState.Money -= nuclearCharInvest.produce;
 								PlayerState.PlantChar (charnumber, charSelect);
 								NewsScript.myQue.Enqueue ("원자력 생산량 특성에 투자하였습니다");
-						} else if (charSelect == 3 && PlayerState.Money >= nuclearCharInvest.eco) { // 친환경성 증가
-								PlayerState.Money -= nuclearCharInvest.eco;
-								PlayerState.PlantChar (charnumber, charSelect);
-								NewsScript.myQue.Enqueue ("원자력 친환경성 특성에 투자하였습니다");
-						} else {
+						}  else {
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						}
 						break;
@@ -500,11 +481,7 @@ public class StateUI : MonoBehaviour
 								PlayerState.Money -= sunCharInvest.produce;
 								PlayerState.PlantChar (charnumber, charSelect);
 								NewsScript.myQue.Enqueue ("태양광 생산량 특성에 투자하였습니다");
-						} else if (charSelect == 3 && PlayerState.Money >= sunCharInvest.eco) { // 친환경성 증가
-								PlayerState.Money -= sunCharInvest.eco;
-								PlayerState.PlantChar (charnumber, charSelect);
-								NewsScript.myQue.Enqueue ("태양광 친환경성 특성에 투자하였습니다");
-						} else {
+						}  else {
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						}
 						break;
@@ -517,10 +494,6 @@ public class StateUI : MonoBehaviour
 								PlayerState.Money -= windCharInvest.produce;
 								PlayerState.PlantChar (charnumber, charSelect);
 								NewsScript.myQue.Enqueue ("풍력 생산량 특성에 투자하였습니다");
-						} else if (charSelect == 3 && PlayerState.Money >= windCharInvest.eco) { // 친환경성 증가
-								PlayerState.Money -= windCharInvest.eco;
-								PlayerState.PlantChar (charnumber, charSelect);
-								NewsScript.myQue.Enqueue ("풍력 친환경성 특성에 투자하였습니다");
 						} else {
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						}
@@ -534,10 +507,6 @@ public class StateUI : MonoBehaviour
 								PlayerState.Money -= gravityCharInvest.produce;
 								PlayerState.PlantChar (charnumber, charSelect);
 								NewsScript.myQue.Enqueue ("중력 생산량 특성에 투자하였습니다");
-						} else if (charSelect == 3 && PlayerState.Money >= gravityCharInvest.eco) { // 친환경성 증가
-								PlayerState.Money -= gravityCharInvest.eco;
-								PlayerState.PlantChar (charnumber, charSelect);
-								NewsScript.myQue.Enqueue ("중력 친환경성 특성에 투자하였습니다");
 						} else {
 								NewsScript.myQue.Enqueue ("돈이 모자랍니다");
 						}
@@ -550,37 +519,31 @@ public class StateUI : MonoBehaviour
 		case 1 :
 			costText1 = ""+waterCharInvest.construct;
 			costText2 = ""+waterCharInvest.produce;
-			costText3 = ""+waterCharInvest.eco;
 			break;
 
 		case 2:
 			costText1 = ""+fireCharInvest.construct;
 			costText2 = ""+fireCharInvest.produce;
-			costText3 = ""+fireCharInvest.eco;
 			break;
 
 		case 3:
 			costText1 = ""+nuclearCharInvest.construct;
 			costText2 = ""+nuclearCharInvest.produce;
-			costText3 = ""+nuclearCharInvest.eco;
 			break;
 
 		case 4:
 			costText1 = ""+sunCharInvest.construct;
 			costText2 = ""+sunCharInvest.produce;
-			costText3 = ""+sunCharInvest.eco;
 			break;
 
 		case 5:
 			costText1 = ""+windCharInvest.construct;
 			costText2 = ""+windCharInvest.produce;
-			costText3 = ""+windCharInvest.eco;
 			break;
 
 		case 6 :
 			costText1 = ""+gravityCharInvest.construct;
 			costText2 = ""+gravityCharInvest.produce;
-			costText3 = ""+gravityCharInvest.eco;
 			break;
 		}
 	}

@@ -22,10 +22,11 @@ public class GameStart : MonoBehaviour {
 		GUI.skin = StartFont;
 
 		if (GUI.Button (new Rect (sw / 2 - sw/8, sh/2, sw/4, sh/8), "Start")) {
-						Application.LoadLevel ("1_Game");
-				}
+			GUI.Box(new Rect(0,0,sw,sh),"");
+			Application.LoadLevel ("1_Game");
+		}
 		if (GUI.Button(new Rect(sw/2 - sw/8 ,sh/2 + sh*3/15,sw/4,sh/8),"Quit")){
-						Application.Quit();
+			Application.Quit();
 		}
 	}
 }

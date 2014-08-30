@@ -30,7 +30,7 @@ public class NewsScript : MonoBehaviour {
 
 	void TextMessage(string TM){
 		TopNews.guiText.text = TM;
-		Instantiate (TopNews, new Vector3 (0.37F, 0.95F, 2), Quaternion.identity);
+		Instantiate (TopNews, new Vector3 (0.4F, 0.95F, 2), Quaternion.identity);
 	}
 
 	IEnumerator TextQue(){

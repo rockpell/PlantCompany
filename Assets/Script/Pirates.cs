@@ -21,7 +21,7 @@ public class Pirates : MonoBehaviour
 
 		void initialize ()
 		{
-				invastionTime = 40;
+				invastionTime = 30;
 		}
 
 		// Update is called once per frame

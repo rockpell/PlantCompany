@@ -53,11 +53,11 @@ public class BottomUI : MonoBehaviour {
 			}*/
 		}
 		if (constructCheck) {
-			Debug.Log("constructCheck");
+			//Debug.Log("constructCheck");
 			GUI.BeginGroup(new Rect(sw * 7 / 10, sh * 2 / 5 - sh * 2 / 15, sw*3 / 10 , sh * 15 / 30+10));
 			GUI.Box (new Rect (0,0, sw*3 / 10 , sh * 15 / 30+10), "");
 
-			if (GUI.Button (new Rect (10,10, sw / 6, sh / 15), "수력발전소("+PlayerState.waterCost+")") && !pause) {
+			if (GUI.Button (new Rect (10,10, sw / 6, sh / 15), "수력발전소("+PlayerState.waterCost+")("+PlayerState.waterpowerMoney+")") && !pause) {
 				ActionButton = true;
 				ActionText ("수력발전소를 건설");
 				if(PlayerState.waterLevel==0)selectNumber = 8;
@@ -65,7 +65,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			GUI.Label(new Rect(10 + sw / 6 +10, 10, sw/12, sh/20), "소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.water); 
 
-			if (GUI.Button (new Rect (10, 10 * 2 + sh / 15, sw / 6, sh / 15), "화력발전소("+PlayerState.fireCost+")") && !pause) {
+			if (GUI.Button (new Rect (10, 10 * 2 + sh / 15, sw / 6, sh / 15), "화력발전소("+PlayerState.fireCost+")("+PlayerState.thermalpowerMoney+")") && !pause) {
 				ActionButton = true;
 				ActionText ("화력발전소를 건설");
 				if(PlayerState.fireLevel==0)selectNumber = 8;
@@ -73,7 +73,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			GUI.Label(new Rect(10 + sw/6 +10, 10 * 2 +sh / 15, sw / 12, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.fire);
 
-			if (GUI.Button (new Rect (10, 10 * 3 + sh * 2 / 15, sw / 6, sh / 15), "원자력발전소("+PlayerState.nuclearCost+")") && !pause) {
+			if (GUI.Button (new Rect (10, 10 * 3 + sh * 2 / 15, sw / 6, sh / 15), "원자력발전소("+PlayerState.nuclearCost+")("+PlayerState.nuclearpowerMoney+")") && !pause) {
 				ActionButton = true;
 				ActionText ("원자력발전소를 건설");
 				if(PlayerState.nuclearLevel==0)selectNumber = 8;
@@ -81,7 +81,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			GUI.Label(new Rect(10 + sw/6 +10, 10 * 3 + sh * 2 / 15, sw / 12, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.nuclear);
 
-			if (GUI.Button (new Rect (10, 10 * 4 + sh * 3 / 15, sw / 6, sh / 15), "태양광발전소("+PlayerState.sunCost+")") && !pause) {
+			if (GUI.Button (new Rect (10, 10 * 4 + sh * 3 / 15, sw / 6, sh / 15), "태양광발전소("+PlayerState.sunCost+")("+PlayerState.solarpowerMoney+")") && !pause) {
 				ActionButton = true;
 				ActionText ("태양광발전소를 건설");
 				if(PlayerState.sunLevel==0)selectNumber = 8;
@@ -89,7 +89,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			GUI.Label(new Rect(10 + sw/6 +10, 10 * 4 + sh * 3 / 15, sw / 12, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.sun);
 
-			if (GUI.Button (new Rect (10, 10 * 5 + sh * 4 / 15, sw / 6, sh / 15), "풍력발전소("+PlayerState.windCost+")") && !pause) {
+			if (GUI.Button (new Rect (10, 10 * 5 + sh * 4 / 15, sw / 6, sh / 15), "풍력발전소("+PlayerState.windCost+")("+PlayerState.windpowerMoney+")") && !pause) {
 				ActionButton = true;
 				ActionText ("풍력발전소를 건설");
 				if(PlayerState.windLevel==0)selectNumber = 8;
@@ -97,7 +97,7 @@ public class BottomUI : MonoBehaviour {
 			}
 			GUI.Label(new Rect(10 + sw/6 +10, 10 * 5 + sh * 4 / 15, sw / 12, sh / 20),"소유수 : "+NationScript.RNation[nationSelect-1].PlayerPlant.wind);
 
-			if (GUI.Button (new Rect (10, 10 * 6 + sh * 5 / 15, sw / 6, sh / 15), "중력발전소("+PlayerState.gravityCost+")") && !pause) {
+			if (GUI.Button (new Rect (10, 10 * 6 + sh * 5 / 15, sw / 6, sh / 15), "중력발전소("+PlayerState.gravityCost+")("+PlayerState.gravitypowerMoney+")") && !pause) {
 				ActionButton = true;
 				ActionText ("중력발전소를 건설");
 				if(PlayerState.gravityLevel==0)selectNumber = 8;
@@ -121,78 +121,85 @@ public class BottomUI : MonoBehaviour {
 	void SelectMethod(int number){
 		switch (number) {
 		case 1:
-			if(PlayerState.Money>=300){
-				NationScript.RNation[nationSelect-1].DataLevel += 1;
-				PlayerState.Money -= 300;
-				AllText("정보수집을 시작합니다");
-			}
-			else NewsScript.myQue.Enqueue("돈이 모자랍니다");
+
 			break;
 
 		case 2:
-			if(PlayerState.Money>=PlayerState.waterCost){
+			if(NationScript.RNation[nationSelect-1].PlantNumber.water==5){
+				AllText2();
+			}
+			else if(PlayerState.Money>=PlayerState.waterCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.water ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.water ++;
 				PlayerState.waterNumber++;
 				PlayerState.Money -=PlayerState.waterCost;
 				AllText("수력발전소를 건설하였습니다.");
 			}
-			else AllText("돈이 모자랍니다");
 			break;
 
 		case 3:
-			if(PlayerState.Money>=PlayerState.fireCost){
+			if(NationScript.RNation[nationSelect-1].PlantNumber.fire==5){
+				AllText2();
+			}
+			else if(PlayerState.Money>=PlayerState.fireCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.fire ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.fire ++;
 				PlayerState.fireNumber++;
 				PlayerState.Money -=PlayerState.fireCost;
 				AllText("화력발전소를 건설하였습니다.");
 			}
-			else AllText("돈이 모자랍니다");
 			break;
 
 		case 4:
-			if(PlayerState.Money>=PlayerState.nuclearCost){
+			if(NationScript.RNation[nationSelect-1].PlantNumber.nuclear==5){
+				AllText2();
+			}
+			else if(PlayerState.Money>=PlayerState.nuclearCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.nuclear ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.nuclear ++;
 				PlayerState.nuclearNumber++;
 				PlayerState.Money -=PlayerState.nuclearCost;
 				AllText("원자력발전소를 건설하였습니다.");
 			}
-			else AllText("돈이 모자랍니다");
 			break;
 
 		case 5:
-			if(PlayerState.Money>=PlayerState.sunCost){
+			if(NationScript.RNation[nationSelect-1].PlantNumber.wind==5){
+				AllText2();
+			}
+			else if(PlayerState.Money>=PlayerState.sunCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.sun ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.sun ++;
 				PlayerState.sunNumber++;
 				PlayerState.Money -=PlayerState.sunCost;
 				AllText("태양광발전소를 건설하였습니다.");
 			}
-			else AllText("돈이 모자랍니다");
 			break;
 
 		case 6:
-			if(PlayerState.Money>=PlayerState.windCost){
+			if(NationScript.RNation[nationSelect-1].PlantNumber.wind==5){
+				AllText2();
+			}
+			else if(PlayerState.Money>=PlayerState.windCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.wind ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.wind ++;
 				PlayerState.windNumber++;
 				PlayerState.Money -=PlayerState.windCost;
 				AllText("풍력발전소를 건설하였습니다.");
 			}
-			else AllText("돈이 모자랍니다");
 			break;
 
 		case 7:
-			if(PlayerState.Money>=PlayerState.gravityCost){
+			if(NationScript.RNation[nationSelect-1].PlantNumber.gravity==5){
+				AllText2();
+			}
+			else if(PlayerState.Money>=PlayerState.gravityCost){
 				NationScript.RNation[nationSelect-1].PlantNumber.gravity ++;
 				NationScript.RNation[nationSelect-1].PlayerPlant.gravity ++;
 				PlayerState.gravityNumber++;
 				PlayerState.Money -=PlayerState.gravityCost;
 				AllText("중력발전소를 건설하였습니다.");
 			}
-			else AllText("돈이 모자랍니다");
 			break;
 
 		case 8:
@@ -203,5 +210,9 @@ public class BottomUI : MonoBehaviour {
 
 	void AllText(string atext){
 		NewsScript.myQue.Enqueue(atext);
+	}
+
+	void AllText2(){
+		AllText ("한 국가에 건설 가능한 발전소는 5개 입니다");
 	}
 }
